@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap");
+body {
+    font-family: "Afacad Flux", sans-serif;
+}
+h1 {
+    font-size: 5rem; /* You can adjust the font size */
+    color: #ffffff; /* Change color if desired */
+    text-align: center; /* Center the title */
+}
+h2 {
+    font-size: 2.5rem; /* You can adjust the font size */
+    color: #ffffff; /* Change color if desired */
+    text-align: center; /* Center the title */
+}
+p {
+    font-size: 1rem; /* Adjust text font size */
+    color: #ffffff; /* Change text color */
+    text-align: center;
+}
