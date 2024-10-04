@@ -1,0 +1,7 @@
+beautifulsoup4
+pandas
+plotly
+Requests
+streamlit
+streamlit_lottie
+streamlit_option_menu
