@@ -27,5 +27,7 @@ def main():
                 "nav-link-selected": {"background-color": "pink"},
             }
         )
+    if selected == 'Home':
+        return
 if __name__ == "__main__":
     main()
