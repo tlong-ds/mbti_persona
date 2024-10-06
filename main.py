@@ -34,8 +34,8 @@ def main():
     with st.sidebar:
         selected = opts(
             menu_title = None,
-            options = ['Home', 'Personality Test', 'Personality Types', 'Languages', 'Contact Us'],
-            icons = ['house', 'person', 'star', 'info-circle', 'envelope'],
+            options = ['Home', 'Personality Test', 'Personality Types', 'Contact Us'],
+            icons = ['house', 'person', 'star', 'envelope'],
             default_index=0,
             styles={"container": {"padding": "0!important", "background-color": "#0d0c0c"},
                     "icon": {"color": "white", "font-size": "25px"},
