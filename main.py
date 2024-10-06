@@ -2,12 +2,33 @@ import streamlit as st
 from streamlit_option_menu import option_menu as opts
 import base64
 import webbrowser
+
 def load_css():
     with open("style.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+@st.cache_data
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+def set_background():
+    img = get_img_as_base64("Background.png")
+    page_bg_img = f"""
+        <style>
+        [data-testid="stAppViewContainer"] > .main {{
+        background-image: url("data:image/png;base64,{img}");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        }}
+        </style>
+        """     
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
 def main():
     load_css()
+    set_background()
     st.title('Personality')
     st.write("by nong")
     with st.sidebar:
