@@ -31,8 +31,8 @@ def set_background():
 def main():
     load_css()
     set_background()
-    st.title('Personality')
-    st.write("by nong")
+    st.title('PERSONALITY')
+    st.header("Group 6 - DSEB 65B")
     with st.sidebar:
         selected = opts(
             menu_title = None,

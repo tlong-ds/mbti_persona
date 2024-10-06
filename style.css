@@ -1,19 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap");
+
 body {
     font-family: "Afacad Flux", sans-serif;
-}
-h1 {
-    font-size: 5rem; /* You can adjust the font size */
-    color: #ffffff; /* Change color if desired */
-    text-align: center; /* Center the title */
-}
-h2 {
-    font-size: 2.5rem; /* You can adjust the font size */
-    color: #ffffff; /* Change color if desired */
-    text-align: center; /* Center the title */
-}
-p {
-    font-size: 1rem; /* Adjust text font size */
-    color: #ffffff; /* Change text color */
+    background-color: #333333; /* Optional: Change background color */
+    margin: 0;
+    padding: 0;
+    color: #ffffff; /* Default color for all text */
     text-align: center;
+}
+
+h1 {
+    font-size: 5rem; /* Adjust as needed */
+    color: #ffffff; /* Title color */
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem; /* Adjust as needed */
+    color: #ffffff; /* Subtitle color */
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem; /* Adjust paragraph font size */
+    color: #ffffff; /* Change paragraph text color */
+    text-align: justify; /* Optional: Change to 'center' or other alignment */
+    line-height: 1.5; /* Adjust line spacing */
+    margin: 20px; /* Add margin to separate paragraphs */
 }

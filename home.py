@@ -10,4 +10,4 @@ def load_css():
 
 def display_home():
     load_css()
-    st.text('Hello')
+    st.write('Hello')
