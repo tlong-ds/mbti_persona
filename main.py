@@ -3,6 +3,8 @@ from streamlit_option_menu import option_menu as opts
 import base64
 import webbrowser
 
+from home import display_home
+
 def load_css():
     with open("style.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -49,6 +51,6 @@ def main():
             }
         )
     if selected == 'Home':
-        return
+        display_home()
 if __name__ == "__main__":
     main()
