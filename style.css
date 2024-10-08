@@ -28,3 +28,12 @@ p {
     line-height: 1.5; /* Adjust line spacing */
     margin: 20px; /* Add margin to separate paragraphs */
 }
+.question-text {
+    font-size: 2rem; /* Adjust paragraph font size */
+    font-weight: bold;
+    color: #ffffff; /* Change paragraph text color */
+    text-align: justify; /* Optional: Change to 'center' or other alignment */
+    line-height: 1.5; /* Adjust line spacing */
+    margin: 20px; /* Add margin to separate paragraphs */
+}
+.s

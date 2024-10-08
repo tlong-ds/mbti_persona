@@ -3,11 +3,9 @@ from streamlit_option_menu import option_menu as opts
 import base64
 import webbrowser
 
+from format_file import formatting
 from home import display_home
-
-def load_css():
-    with open("style.css") as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+from p_test import display_test
 
 @st.cache_data
 def get_img_as_base64(file):
@@ -29,7 +27,7 @@ def set_background():
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
 def main():
-    load_css()
+    formatting()
     set_background()
     st.title('PERSONALITY')
     st.header("Group 6 - DSEB 65B")
@@ -52,5 +50,7 @@ def main():
         )
     if selected == 'Home':
         display_home()
+    if selected == 'Personality Test':
+        display_test()
 if __name__ == "__main__":
     main()
