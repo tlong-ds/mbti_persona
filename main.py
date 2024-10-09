@@ -6,6 +6,7 @@ import webbrowser
 from home import display_home
 from p_test import display_test
 from p_types import display_types
+from contact import display_contact
 
 if "page" not in st.session_state:
     st.session_state.page = 0
@@ -65,6 +66,7 @@ def main():
         display_types()
     if selected == 'Contact Us':
         st.session_state.page = 3
+        display_contact()
     with placeholder:
         if st.session_state.page == 0:
             st.title('MBTI Personality Test')

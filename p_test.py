@@ -47,17 +47,14 @@ def test():
         with col3:
             st.markdown('Neutral <br> &nbsp;', unsafe_allow_html=True)
             if st.button(' ', key = 'neutral'):
-                st.write('Neutral')
                 st.session_state['bonus'] = 0
         with col4:
             st.markdown('Agree <br> &nbsp;', unsafe_allow_html=True)
             if st.button(' ', key = 'agree'):
-                st.write('Agree')
                 st.session_state['bonus'] = 1
         with col5:
             st.markdown('Strongly <br> Agree', unsafe_allow_html=True)
             if st.button(' ', key = 'strongly agree'):
-                st.write('Strongly Agree')
                 st.session_state['bonus'] = 2
                 
         st.divider()
@@ -83,7 +80,6 @@ def test():
         st.write(f"Your MBTI Type is: **{mbti_type}**")
         st.button('Restart', on_click = reset_app, key="retake the test")
 
-            
 
 # Main code to show the test
 def display_test():
@@ -139,7 +135,10 @@ def display_test():
                 st.rerun()
             
         if st.session_state.stage == 1:
-            placeholder.write(f"Alright, {st.session_state['name']}. Let's start the test!")
+            placeholder.markdown(f"""
+                                 Alright, {st.session_state['name']}. Let's start the test! <br>
+                                 Note that you cannot go back to previous question, so you have to be careful of your answer!
+                                 """, unsafe_allow_html=True)
             test()
         elif st.session_state.stage == 2:
             placeholder.write(f"It's okay. If you change your mind, you can reload the page, or press this button!")
