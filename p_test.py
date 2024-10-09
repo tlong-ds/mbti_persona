@@ -75,10 +75,10 @@ def test():
         mbti_type += 'S' if dimensions['S'] >= dimensions['N'] else 'N'
         mbti_type += 'T' if dimensions['T'] >= dimensions['F'] else 'F'
         mbti_type += 'J' if dimensions['J'] >= dimensions['P'] else 'P'
+        st.session_state.stage = 3
+        return mbti_type
 
-        st.write(f"Thank you, {st.session_state['name']}!")
-        st.write(f"Your MBTI Type is: **{mbti_type}**")
-        st.button('Restart', on_click = reset_app, key="retake the test")
+        
 
 
 # Main code to show the test
@@ -97,7 +97,6 @@ def display_test():
     """, unsafe_allow_html=True)
     placeholder = st.empty()
     
-
     if 'answers' not in st.session_state:
         st.session_state['answers'] = {}
     if 'current_question' not in st.session_state:
@@ -139,7 +138,14 @@ def display_test():
                                  Alright, {st.session_state['name']}. Let's start the test! <br>
                                  Note that you cannot go back to previous question, so you have to be careful of your answer!
                                  """, unsafe_allow_html=True)
-            test()
+            mbti_type = test()
+
+            if st.session_state.stage == 3:
+                placeholder.write(f"Thank you, {st.session_state['name']}!")
+                st.write(f"Your MBTI Type is: **{mbti_type}**")
+                st.divider()
+                st.write(f"Learn more about your personality: ")
+                st.button('Restart', on_click = reset_app, key="retake the test")
         elif st.session_state.stage == 2:
             placeholder.write(f"It's okay. If you change your mind, you can reload the page, or press this button!")
             st.button('Restart', on_click = reset_app, key="re_entering")
