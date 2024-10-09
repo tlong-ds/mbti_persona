@@ -11,7 +11,7 @@ questions = [{'question': line[0], 'dimension': line[1].replace('\n', '')} for l
 # Reset the page
 def reset_app():
     # Clear any session state variables or reset values
-    for key in st.åsession_state.keys():
+    for key in st.session_state.keys():
         del st.session_state[key]
 # Greeting based on real-time
 def friendly():
