@@ -36,6 +36,7 @@ def friendly():
 
 
 def test():
+    
     st.markdown("""
     <style>
     .stButton > button {
@@ -104,7 +105,7 @@ def test():
         
 # Main code to show the test
 def display_test():
-    st.title('PERSONALITY TEST')
+    placeholder = st.empty()
     
     if 'stage' not in st.session_state:
         st.session_state.stage = 0

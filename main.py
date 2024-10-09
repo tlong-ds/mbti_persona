@@ -55,17 +55,13 @@ def main():
     
     if selected == 'Home':
         st.session_state.page = 0
-        print(st.session_state.page)
-        
         display_home()
         
     if selected == 'Personality Test':
         st.session_state.page = 1
-        print(st.session_state.page)
         display_test()
     if selected == 'Personality Types':
         st.session_state.page = 2 
-        print(st.session_state.page)
         display_types()
     if selected == 'Contact Us':
         st.session_state.page = 3
