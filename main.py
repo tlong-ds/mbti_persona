@@ -6,7 +6,7 @@ import webbrowser
 from home import display_home
 from p_test import display_test
 from p_types import display_types
-from contact import display_contact
+from about import display_about
 
 if "page" not in st.session_state:
     st.session_state.page = 0
@@ -39,10 +39,10 @@ def main():
     with st.sidebar:
         selected = opts(
             menu_title = None,
-            options = ['Home', 'Personality Test', 'Personality Types', 'Contact Us'],
-            icons = ['house', 'person', 'star', 'envelope'],
+            options = ['Home', 'Personality Test', 'Personality Types', 'About Us'],
+            icons = ['house', 'person', 'star', 'info-circle'],
             default_index=0,
-            styles={"container": {"padding": "0!important", "background-color": "#0d0c0c"},
+            styles={"container": {"padding": "0 !important", "background-color": "#262730"},
                     "icon": {"color": "white", "font-size": "25px"},
                     "nav-link": {
                         "font-size": "15px",
@@ -64,9 +64,9 @@ def main():
     if selected == 'Personality Types':
         st.session_state.page = 2 
         display_types()
-    if selected == 'Contact Us':
+    if selected == 'About Us':
         st.session_state.page = 3
-        display_contact()
+        display_about()
     with placeholder:
         if st.session_state.page == 0:
             st.title('MBTI Personality Test')
@@ -75,7 +75,7 @@ def main():
         if st.session_state.page == 2:
             st.title('Personality Types')
         if st.session_state.page == 3:
-            st.title('Contact')
+            st.title('About Us')
 
 if __name__ == "__main__":
     main()

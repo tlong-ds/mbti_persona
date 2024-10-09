@@ -1,6 +1,6 @@
 import streamlit as st
 
-def display_contact():
+def display_about():
     
     # Your function goes here!
     st.write('hello contact')

@@ -146,8 +146,9 @@ def display_test():
                 st.divider()
                 st.write(f"Learn more about your personality: ")
                 st.button('Restart', on_click = reset_app, key="retake the test")
+            
         elif st.session_state.stage == 2:
-            placeholder.write(f"It's okay. If you change your mind, you can reload the page, or press this button!")
+            placeholder.write(f"If you change your mind, you can reload the page, or press this button!")
             st.button('Restart', on_click = reset_app, key="re_entering")
 
     
