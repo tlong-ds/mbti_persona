@@ -78,9 +78,6 @@ def test():
         st.session_state.stage = 3
         return mbti_type
 
-        
-
-
 # Main code to show the test
 def display_test():
     st.markdown("""
@@ -124,14 +121,17 @@ def display_test():
         if 'clicked' not in st.session_state:
             st.session_state.clicked = False
         if not st.session_state.clicked:
-            if st.button('Yes'):
-                st.session_state.stage = 1
-                st.session_state.clicked = True
-                st.rerun()
-            elif st.button('No'):
-                st.session_state.stage = 2
-                st.session_state.clicked = True
-                st.rerun()
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button('Yes'):
+                    st.session_state.stage = 1
+                    st.session_state.clicked = True
+                    st.rerun()
+            with col2:
+                if st.button('No'):
+                    st.session_state.stage = 2
+                    st.session_state.clicked = True
+                    st.rerun()
             
         if st.session_state.stage == 1:
             placeholder.markdown(f"""
