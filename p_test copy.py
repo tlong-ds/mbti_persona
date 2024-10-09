@@ -2,17 +2,26 @@ import streamlit as st
 import pandas as pd
 
 from datetime import datetime
+from format_file import formatting
+st.set_page_config(page_title="p test")
 
-with open('qsets.txt', 'r') as file:
-    data = file.readlines()
-
-list_data = [line.split(' -  ') for line in data]
-questions = [{'question': line[0], 'dimension': line[1].replace('\n', '')} for line in list_data]
 
 def reset_app():
     # Clear any session state variables or reset values
     for key in st.session_state.keys():
         del st.session_state[key]
+    
+def set_state(i):
+    st.session_state.stage = i
+
+questions = [
+    {"question": "I feel energized after socializing with people.", "dimension": "E/I"},
+    {"question": "I often need time alone to recharge after a busy day.", "dimension": "S/N"},
+    {"question": "I trust information that is more concrete and based on real experiences.", "dimension": "T/F"},
+    {"question": "I enjoy exploring theoretical ideas and abstract concepts.", "dimension": "J/P"},
+    # Add more questions here...
+]
+
 
 def friendly():
     current_time = datetime.now().strftime("%H:%M:%S")
@@ -92,10 +101,11 @@ def test():
         st.write(f"Your MBTI Type is: **{mbti_type}**")
         st.button('Restart', on_click = reset_app, key="clear_cache_button")
 
-            
-
+        
 # Main code to show the test
 def display_test():
+    st.title('PERSONALITY TEST')
+    
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
     if 'answers' not in st.session_state:
@@ -115,4 +125,11 @@ def display_test():
             st.rerun()  # Trigger a rerun to hide the input box
     else:
         st.write(f"Good {friendly()}, {st.session_state['name']}! Let's start your personality test!")
+        set_state(2)
         test()
+
+def main():
+    display_test()
+
+if __name__ == "__main__":
+    main()

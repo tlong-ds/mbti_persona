@@ -3,15 +3,20 @@ from streamlit_option_menu import option_menu as opts
 import base64
 import webbrowser
 
-from format_file import formatting
 from home import display_home
 from p_test import display_test
+from p_types import display_types
+
+if "page" not in st.session_state:
+    st.session_state.page = 0
 
 @st.cache_data
+# import image
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
     return base64.b64encode(data).decode()
+
 def set_background():
     img = get_img_as_base64("Background.png")
     page_bg_img = f"""
@@ -27,10 +32,9 @@ def set_background():
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
 def main():
-    formatting()
     set_background()
-    st.title('PERSONALITY')
-    st.header("Group 6 - DSEB 65B")
+    placeholder = st.empty()
+        
     with st.sidebar:
         selected = opts(
             menu_title = None,
@@ -48,9 +52,32 @@ def main():
                 "nav-link-selected": {"background-color": "pink"},
             }
         )
+    
     if selected == 'Home':
+        st.session_state.page = 0
+        print(st.session_state.page)
+        
         display_home()
+        
     if selected == 'Personality Test':
+        st.session_state.page = 1
+        print(st.session_state.page)
         display_test()
+    if selected == 'Personality Types':
+        st.session_state.page = 2 
+        print(st.session_state.page)
+        display_types()
+    if selected == 'Contact Us':
+        st.session_state.page = 3
+    with placeholder:
+        if st.session_state.page == 0:
+            st.title('MBTI Personality Test')
+        if st.session_state.page == 1:
+            st.title('The Personality Test')
+        if st.session_state.page == 2:
+            st.title('Personality Types')
+        if st.session_state.page == 3:
+            st.title('Contact')
+
 if __name__ == "__main__":
     main()
