@@ -1,16 +1,16 @@
 [[pages]]
 path = "home.py"
-name = "Home"
+name = "HOME"
 icon = "🏠"
 
 [[pages]]
 path = "p_test.py"
-name = "Personality Test"
+name = "PERSONALITY TEST"
 icon = "📝"
 
 [[pages]]
 path = "p_types.py"
-name = "Personality Types"
+name = "PERSONALITY TYPES"
 icon = "💖"
 
 [[pages]]
