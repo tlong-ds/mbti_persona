@@ -35,7 +35,7 @@ def set_background():
 def main():
     set_background()
     nav = get_nav_from_toml("pages.toml")
-    pg = st.navigation(nav)
+    pg = st.navigation(nav, expanded=False)
     add_page_title(pg)
     pg.run()
     

@@ -34,7 +34,9 @@ def test():
         if 'bonus' not in st.session_state:
             st.session_state['bonus'] = 0
         q = questions[current]
+        st.divider()
         st.markdown(f"Question {current + 1} of {len(questions)}: <b>{q['question']}</b>", unsafe_allow_html=True)
+        
         
         col1, col2, col3, col4, col5 = st.columns(5)
         
@@ -86,7 +88,7 @@ def display_test():
     <style>
     .stButton > button {
         padding: 20px 20px !important;
-        border-radius: 8px !important;
+        border-radius: 20px !important;
     }
     .stButton > button:hover {
         background-color: #ffb8e2 !important; /* Darker green on hover */
