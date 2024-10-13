@@ -4,6 +4,11 @@ name = "HOME"
 icon = "🏠"
 
 [[pages]]
+name = "Understand Your Personality!"
+icon = "🫵"
+is_section = true
+
+[[pages]]
 path = "p_test.py"
 name = "PERSONALITY TEST"
 icon = "📝"
@@ -14,7 +19,12 @@ name = "PERSONALITY TYPES"
 icon = "💖"
 
 [[pages]]
+name = "Contact Us"
+icon = "📞"
+is_section = true
+
+[[pages]]
 path = "about.py"
-name = "About"
+name = "ABOUT"
 icon = "ℹ️"
 
