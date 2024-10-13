@@ -2,7 +2,7 @@ import streamlit as st
 import requests  
 from bs4 import BeautifulSoup
 
-def personality_info():
+def personality_info(): # Task for Pham Khanh Linh, Bui Viet Huy
     # Your function goes here
     pass
 
