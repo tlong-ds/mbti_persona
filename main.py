@@ -6,12 +6,16 @@ import webbrowser
 st.set_page_config(layout = "wide")
 @st.cache_data 
 
+# import css
+def load_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 # import image
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
     return base64.b64encode(data).decode()
-
+# set_background
 def set_background():
     img = get_img_as_base64("Background.png")
     page_bg_img = f"""
@@ -26,10 +30,11 @@ def set_background():
         """     
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
+
+# main function
 def main():
     set_background()
     nav = get_nav_from_toml("pages.toml")
-
     pg = st.navigation(nav)
     add_page_title(pg)
     pg.run()

@@ -147,6 +147,7 @@ def display_test():
                 st.write(f"Your MBTI Type is: **{mbti_type}**")
                 st.divider()
                 st.write(f"Learn more about your personality: ")
+                
                 st.button('Restart', on_click = reset_app, key="retake the test")
             
         elif st.session_state.stage == 2:

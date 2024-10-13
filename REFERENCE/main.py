@@ -100,4 +100,3 @@ def main():
         display_about_info()
     elif selected == "Tarot":
         display_tarot_info()
-
