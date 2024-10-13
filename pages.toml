@@ -1,0 +1,20 @@
+[[pages]]
+path = "home.py"
+name = "Home"
+icon = "🏠"
+
+[[pages]]
+path = "p_test.py"
+name = "Personality Test"
+icon = "📝"
+
+[[pages]]
+path = "p_types.py"
+name = "Personality Types"
+icon = "💖"
+
+[[pages]]
+path = "about.py"
+name = "About"
+icon = "ℹ️"
+

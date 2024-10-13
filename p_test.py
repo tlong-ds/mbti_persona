@@ -8,11 +8,13 @@ with open('qsets.txt', 'r') as file:
     data = file.readlines()
 list_data = [line.split(' -  ') for line in data]
 questions = [{'question': line[0], 'dimension': line[1].replace('\n', '')} for line in list_data]
+
 # Reset the page
 def reset_app():
     # Clear any session state variables or reset values
     for key in st.session_state.keys():
         del st.session_state[key]
+    
 # Greeting based on real-time
 def friendly():
     current_time = datetime.now().strftime("%H:%M:%S")
@@ -150,5 +152,7 @@ def display_test():
         elif st.session_state.stage == 2:
             placeholder.write(f"If you change your mind, you can reload the page, or press this button!")
             st.button('Restart', on_click = reset_app, key="re_entering")
+
+display_test()
 
     

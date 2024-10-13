@@ -33,7 +33,7 @@ def display_types():
     if st.session_state.stage_type == 2:
         personality_info()
         
-                
+display_types()
 
         
     

@@ -9,3 +9,5 @@ def display_home():
 
     # Your function goes here!
     st.write('Hello')
+
+display_home()
