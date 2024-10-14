@@ -81,7 +81,7 @@ def test():
         mbti_type += 'J' if dimensions['J'] >= dimensions['P'] else 'P'
         st.session_state.stage = 3
         return mbti_type
-
+# hihi
 # Main code to show the test
 def display_test():
     st.markdown("""
