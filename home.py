@@ -4,7 +4,7 @@ from PIL import Image
 from io import BytesIO
 import os
 
-def display_home(): # Task for Truong Duc Anh, Nguyen Dang Minh, Ninh Duy Tuan
+def display_home(): # Task for Nguyen Dang Minh, Ninh Duy Tuan
     st.balloons()
 
     # Your function goes here!
