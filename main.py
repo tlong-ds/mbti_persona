@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_option_menu import option_menu as opts
 from st_pages import add_page_title, get_nav_from_toml
 import base64
 import webbrowser
