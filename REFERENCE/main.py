@@ -100,3 +100,6 @@ def main():
         display_about_info()
     elif selected == "Tarot":
         display_tarot_info()
+
+if __name__ == "__main__":
+    main()
