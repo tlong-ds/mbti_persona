@@ -4,10 +4,7 @@ import pandas as pd
 from datetime import datetime
 # Task for Long
 # Import questions
-with open('qsets.txt', 'r') as file:
-    data = file.readlines()
-list_data = [line.split(' -  ') for line in data]
-questions = [{'question': line[0], 'dimension': line[1].replace('\n', '')} for line in list_data]
+questions = pd.read_csv('qsets.tsv', sep = '\t')
 
 # Reset the page
 def reset_app():
@@ -29,11 +26,23 @@ def friendly():
 
 
 def test():
+    st.markdown("""
+    <style>
+    .stButton > button {
+        padding: 20px 20px !important;
+        border-radius: 20px !important;
+    }
+    .stButton > button:hover {
+        background-color: #ffb8e2 !important;
+        
+    }
+    </style>
+    """, unsafe_allow_html=True)
     if st.session_state['current_question'] < len(questions):
         current = st.session_state['current_question']
         if 'bonus' not in st.session_state:
             st.session_state['bonus'] = 0
-        q = questions[current]
+        q = questions.iloc[current]
         st.divider()
         st.markdown(f"Question {current + 1} of {len(questions)}: <b>{q['question']}</b>", unsafe_allow_html=True)
         
@@ -71,31 +80,19 @@ def test():
     else:
         st.session_state['completed'] = True
     if st.session_state['completed'] == True:
-        dimensions = {'E': 0, 'I': 0, 'S': 0, 'N': 0, 'T': 0, 'F': 0,  'J': 0, 'P': 0}
+        dimensions = {'E/I': 0, 'S/N': 0, 'T/F': 0, 'J/P': 0}
         for dimension, score in st.session_state['answers'].items():
             dimensions[dimension] += score
         mbti_type = ""
-        mbti_type += 'E' if dimensions['E'] >= dimensions['I'] else 'I'
-        mbti_type += 'S' if dimensions['S'] >= dimensions['N'] else 'N'
-        mbti_type += 'T' if dimensions['T'] >= dimensions['F'] else 'F'
-        mbti_type += 'J' if dimensions['J'] >= dimensions['P'] else 'P'
+        mbti_type += 'E' if dimensions['E/I'] >= 0 else 'I'
+        mbti_type += 'S' if dimensions['S/N'] >= 0 else 'N'
+        mbti_type += 'T' if dimensions['T/F'] >= 0 else 'F'
+        mbti_type += 'J' if dimensions['J/P'] >= 0 else 'P'
         st.session_state.stage = 3
         return mbti_type
 
 # Main code to show the test
 def display_test():
-    st.markdown("""
-    <style>
-    .stButton > button {
-        padding: 20px 20px !important;
-        border-radius: 20px !important;
-    }
-    .stButton > button:hover {
-        background-color: #ffb8e2 !important; /* Darker green on hover */
-        
-    }
-    </style>
-    """, unsafe_allow_html=True)
     placeholder = st.empty()
     
     if 'answers' not in st.session_state:
