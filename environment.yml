@@ -4,13 +4,12 @@ channels:
   - defaults
 dependencies:
   - python=3.12
-  - streamlit
+  - streamlit=1.38
   - pandas
   - numpy
   - beautifulsoup4
   - matplotlib
   - requests
-  - streamlit
   - pip
   - pip:
     - streamlit_lottie
