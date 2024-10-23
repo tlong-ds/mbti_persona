@@ -3,6 +3,7 @@ import pandas as pd
 import base64
 from datetime import datetime
 # Task for Long
+
 # Import questions
 questions = pd.read_csv('qsets.tsv', sep = '\t')
 
@@ -15,7 +16,7 @@ def set_background():
     page_bg_img = f"""
         <style>
         [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("data:image/png;base64,{img}");
+        background-image: url("data:image/png;base64,{img}");x
         background-size: 100%;
         background-repeat: no-repeat;
         background-attachment: local;

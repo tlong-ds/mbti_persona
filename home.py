@@ -19,6 +19,7 @@ def set_background():
         </style>
         """ 
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
 def display_home(): # Task for Nguyen Dang Minh, Ninh Duy Tuan
     set_background()
     st.balloons()
