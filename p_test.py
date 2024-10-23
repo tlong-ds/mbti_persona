@@ -1,10 +1,28 @@
 import streamlit as st
 import pandas as pd
-
+import base64
 from datetime import datetime
 # Task for Long
 # Import questions
 questions = pd.read_csv('qsets.tsv', sep = '\t')
+
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+img = get_img_as_base64("Background.png")
+def set_background():
+    page_bg_img = f"""
+        <style>
+        [data-testid="stAppViewContainer"] > .main {{
+        background-image: url("data:image/png;base64,{img}");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        }}
+        </style>
+        """ 
+    st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # Reset the page
 def reset_app():
@@ -93,6 +111,7 @@ def test():
 
 # Main code to show the test
 def display_test():
+    set_background()
     placeholder = st.empty()
     
     if 'answers' not in st.session_state:
