@@ -10,9 +10,6 @@ dependencies:
   - beautifulsoup4
   - matplotlib
   - requests
-  - base64
-  - webbrowser
-  - datetime
   - pip
   - pip:
     - streamlit_lottie
