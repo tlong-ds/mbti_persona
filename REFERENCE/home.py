@@ -3,8 +3,29 @@ import requests
 from PIL import Image
 from io import BytesIO
 import os
+import base64
+
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+# set_background
+def set_background():
+    img = get_img_as_base64("Background.png")
+    page_bg_img = f"""
+        <style>
+        [data-testid="stAppViewContainer"] > .main {{
+        background-image: url("data:image/png;base64,{img}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        }}
+        </style>
+        """     
+    st.markdown(page_bg_img, unsafe_allow_html=True)
 
 def display_home():
+    set_background()
     st.subheader("Daily Horoscopes - Home")
 
     zodiac_images = {
