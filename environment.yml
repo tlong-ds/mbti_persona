@@ -1,43 +1,18 @@
-COLORTERM=truecolor
-COMMAND_MODE=unix2003
-CONDA_DEFAULT_ENV=workenv
-CONDA_EXE=/opt/anaconda3/bin/conda
-CONDA_PREFIX=/opt/anaconda3/envs/workenv
-CONDA_PREFIX_1=/opt/anaconda3
-CONDA_PROMPT_MODIFIER='(workenv) '
-CONDA_PYTHON_EXE=/opt/anaconda3/bin/python
-CONDA_SHLVL=2
-GIT_ASKPASS='/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh'
-HOME=/Users/bunnypro
-HOMEBREW_CELLAR=/opt/homebrew/Cellar
-HOMEBREW_PREFIX=/opt/homebrew
-HOMEBREW_REPOSITORY=/opt/homebrew
-INFOPATH=/opt/homebrew/share/info:
-LANG=en_US.UTF-8
-LOGNAME=bunnypro
-MallocNanoZone=0
-OLDPWD='/Users/bunnypro/Documents/My workspace/Project/dseb65b_mid'
-ORIGINAL_XDG_CURRENT_DESKTOP=undefined
-PATH='/opt/anaconda3/envs/workenv/bin:/opt/anaconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/TeX/texbin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/bunnypro/bin:/opt/anaconda3/bin:/opt/anaconda3/condabin'
-PWD='/Users/bunnypro/Documents/My workspace/Project/dseb65b_mid'
-SHELL=/bin/zsh
-SHLVL=1
-SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.9U8nQLepwG/Listeners
-TERM=xterm-256color
-TERM_PROGRAM=vscode
-TERM_PROGRAM_VERSION=1.94.2
-TMPDIR=/var/folders/zg/_wfh70cn569_5p6d24bj1_tr0000gn/T/
-USER=bunnypro
-USER_ZDOTDIR=/Users/bunnypro
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=''
-VSCODE_GIT_ASKPASS_MAIN='/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js'
-VSCODE_GIT_ASKPASS_NODE='/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Plugin).app/Contents/MacOS/Code Helper (Plugin)'
-VSCODE_GIT_IPC_HANDLE=/var/folders/zg/_wfh70cn569_5p6d24bj1_tr0000gn/T/vscode-git-a5a729cfe8.sock
-VSCODE_INJECTION=1
-XPC_FLAGS=0x0
-XPC_SERVICE_NAME=application.com.microsoft.VSCode.36583560.36583566
-ZDOTDIR=/Users/bunnypro
-_CE_CONDA=''
-_CE_M=''
-__CFBundleIdentifier=com.microsoft.VSCode
-__CF_USER_TEXT_ENCODING=0x1F5:0:0
+name: myenv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - streamlit
+  - pandas
+  - numpy
+  - beautifulsoup4
+  - matplotlib
+  - requests
+  - streamlit
+  - pip
+  - pip:
+    - streamlit_lottie
+    - st_pages
+

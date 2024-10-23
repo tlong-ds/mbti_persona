@@ -1,9 +1,0 @@
-beautifulsoup4
-pandas
-numpy
-matplotlib
-requests
-streamlit
-streamlit_lottie
-st_pages
-
