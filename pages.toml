@@ -1,5 +1,5 @@
 [[pages]]
-path = "home.py"
+path = "./home/home.py"
 name = "HOME"
 icon = "🏠"
 
@@ -9,12 +9,12 @@ icon = "🫵"
 is_section = true
 
 [[pages]]
-path = "p_test.py"
+path = "./p_test/p_test.py"
 name = "PERSONALITY TEST"
 icon = "📝"
 
 [[pages]]
-path = "p_types.py"
+path = "./p_types/p_types.py"
 name = "PERSONALITY TYPES"
 icon = "💖"
 
@@ -24,7 +24,7 @@ icon = "📞"
 is_section = true
 
 [[pages]]
-path = "about.py"
+path = "./about/about.py"
 name = "ABOUT"
 icon = "ℹ️"
 

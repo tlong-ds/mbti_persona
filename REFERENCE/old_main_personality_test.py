@@ -3,10 +3,10 @@ from streamlit_option_menu import option_menu as opts
 import base64
 import webbrowser
 
-from home import display_home
-from p_test import display_test
-from p_types import display_types
-from about import display_about
+from home.home import display_home
+from p_test.p_test import display_test
+from p_types.p_types import display_types
+from about.about import display_about
 
 if "page" not in st.session_state:
     st.session_state.page = 0

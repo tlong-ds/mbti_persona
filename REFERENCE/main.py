@@ -1,5 +1,5 @@
 import streamlit as st
-from home import display_home
+from home.home import display_home
 from forecast import display_forecast
 from astrology_zodiac_signs import display_zodiac_info
 from about_us import display_about_info

@@ -5,7 +5,7 @@ from datetime import datetime
 # Task for Long
 
 # Import questions
-questions = pd.read_csv('qsets.tsv', sep = '\t')
+questions = pd.read_csv('./p_test/qsets.tsv', sep = '\t')
 
 def get_img_as_base64(file):
     with open(file, "rb") as f:
