@@ -3,7 +3,8 @@
 branch="$1"
 
 # sync with upstream repo
-git pull upstream master
+git pull upstream main
+git push origin main
 
 # create branch if branch name was passed
 if [ ! -z "$branch" ]; then
