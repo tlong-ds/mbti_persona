@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Config git hub
-name = "$1"
-email = "$2"
-if [-z "$name"] || [-z "$email"]; then
+name="$1"
+email="$2"
+if [ -z "$name" ] || [ -z "$email" ]; then
     echo "Usage: ./initialize.sh <your_name> <your_email>"
     exit 1
 fi
