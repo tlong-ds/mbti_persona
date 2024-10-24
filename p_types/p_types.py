@@ -1,13 +1,32 @@
 import streamlit as st
 import requests  
+import base64
 from bs4 import BeautifulSoup
 
-
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+# set_background
+img = get_img_as_base64("./p_types/Background.png")
+def set_background():
+    page_bg_img = f"""
+        <style>
+        [data-testid="stAppViewContainer"] > .main {{
+        background-image: url("data:image/png;base64,{img}");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        }}
+        </style>
+        """ 
+    st.markdown(page_bg_img, unsafe_allow_html=True)
 def personality_info(): # Task for Pham Khanh Linh, Bui Viet Huy
     # Your function goes here
     pass
 
 def display_types():
+    set_background()
     if "stage_type" not in st.session_state:
         st.session_state.stage_type = 0
     # Select type:
