@@ -22,6 +22,7 @@ def set_background():
 
 def display_about(): # Task for Truong Duc Anh
     set_background()
+    
     # Your function goes here!
     st.write('about')
 
