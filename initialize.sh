@@ -13,4 +13,3 @@ git config --global user.email "$email"
 
 # Use conda to create environment and automatically activate it
 conda env create -f environment.yml
-conda activate myenv
