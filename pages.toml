@@ -28,3 +28,7 @@ path = "./about/about.py"
 name = "ABOUT"
 icon = "ℹ️"
 
+[[pages]]
+path = "./premium/premium.py"
+name = "PREMIUM"
+icon = "💛"
