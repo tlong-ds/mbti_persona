@@ -24,7 +24,7 @@ def display_about(): # Task for Truong Duc Anh
     set_background()
     
     # Your function goes here!
-    
+    # Use some function in Documentation!
     st.write('about')
 
 display_about()
