@@ -1,39 +1,32 @@
 import streamlit as st
 
-st.set_page_config(page_title="My App", page_icon=":tada:")
-
-# Navigation bar
-st.markdown("""
+# Define CSS with two classes for clicked and unclicked buttons
+st.markdown(
+    """
     <style>
-    .navbar {
-        display: flex;
-        justify-content: space-around;
-        background-color: #f8f9fa;
-        padding: 10px;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
+    .default-button {
+        background-color: red !important;
+        color: white !important;
     }
-    .navbar a {
-        text-decoration: none;
-        color: #007bff;
-        padding: 8px 15px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-    .navbar a:hover {
-        background-color: #007bff;
-        color: white;
+    .clicked-button {
+        background-color: green !important;
+        color: white !important;
     }
     </style>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-# Horizontal navigation links
-st.markdown('<div class="navbar">'
-            '<a href="/home">Home</a>'
-            '<a href="/about">About</a>'
-            '<a href="/contact">Contact</a>'
-            '</div>', unsafe_allow_html=True)
+# Initialize session state for button click
+if 'button_clicked' not in st.session_state:
+    st.session_state['button_clicked'] = False
 
-# Main content
-st.title("Welcome to My Streamlit App!")
-st.write("Use the navigation bar above to switch between pages.")
+# Choose the CSS class based on the button click state
+button_class = "clicked-button" if st.session_state['button_clicked'] else "default-button"
+
+# Display the button with custom styling
+if st.button("Click me", key="my_button", help="Click to change color"):
+    st.session_state['button_clicked'] = not st.session_state['button_clicked']  # Toggle the state
+
+# Use an HTML button wrapper to apply the class
+st.markdown(f'<div class="{button_class}"><button>{ "Clicked" if st.session_state["button_clicked"] else "Click me" }</button></div>', unsafe_allow_html=True)
