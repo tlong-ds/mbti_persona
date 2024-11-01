@@ -37,7 +37,7 @@ def display_about():
     col1, col2 = st.columns([1, 3])
     
     with col1:
-        st.image("/Users/apple/Downloads/OIP.jpeg", width=200) 
+        st.image("/Users/apple/Downloads/project.webp", width=200) 
     with col2:
         st.header("Our Offerings")
         
