@@ -1,5 +1,4 @@
 import streamlit as st
-import base64
 from Modules import BackgroundHandler
 
 BackgroundHandler.set_background("./about/Background.webp")

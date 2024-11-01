@@ -1,5 +1,4 @@
 import streamlit as st
-import numpy as np
 import pandas as pd
 
 def test():
@@ -7,8 +6,6 @@ def test():
         st.session_state['mbti_type'] = None
     if 'answers' not in st.session_state:
         st.session_state['answers'] = {}
-    if 'completed' not in st.session_state:
-        st.session_state['completed'] = False
 
     questions = pd.read_csv('./p_test/qsets.tsv', sep='\t')
     for i, q in questions.iterrows():
@@ -36,6 +33,7 @@ def test():
     # Calculate MBTI type if completed
     if st.button('Submit', type='primary'):
         st.session_state['completed'] = True
+        st.session_state.stage = 3
         return
     
     

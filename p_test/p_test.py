@@ -12,6 +12,8 @@ if 'name' not in st.session_state:
     st.session_state['name'] = ''
 if 'stage' not in st.session_state:
     st.session_state['stage'] = 0
+if 'completed' not in st.session_state:
+    st.session_state['completed'] = False
 
 # Main function to display the test
 def display_test():
@@ -53,16 +55,16 @@ def display_test():
                                  Alright, {st.session_state['name']}. Let's start the test! <br>
                                  """, unsafe_allow_html=True)
             test()
-            if st.session_state['completed']:
-                Result().display_result()
+            if st.session_state["completed"]: st.rerun()
+            
         # Exit the test
         if st.session_state.stage == 2:
             placeholder.write("If you change your mind, you can reload the page or press this button!")
             st.button('Restart', on_click=reset_app, key="re_entering")
         
         # Display the results
-        if st.session_state.stage == 3:
-            placeholder.write(f"Thank you, {st.session_state['name']}!")
+        if st.session_state.stage == 3 and st.session_state["completed"]:
+            placeholder.write(f"")
             Result().display_result()
             st.button('Restart', on_click=reset_app, key = "retake_the_test")
 
