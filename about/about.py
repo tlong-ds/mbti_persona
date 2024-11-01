@@ -1,28 +1,9 @@
 import streamlit as st
 import base64
+from Modules import BackgroundHandler
 
-def get_img_as_base64(file):
-    with open(file, "rb") as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-# Set background image
-img = get_img_as_base64("./about/Background.png")
-def set_background():
-    page_bg_img = f"""
-        <style>
-        [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("data:image/png;base64,{img}");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        }}
-        </style>
-        """ 
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-
+BackgroundHandler.set_background("./about/Background.webp")
 def display_about(): 
-    set_background()
     st.write("""Understanding one's personality and the ways 
     it influences interactions with the world is invaluable for personal development, 
     professional growth, and relationship building. This personality test application 
@@ -37,7 +18,7 @@ def display_about():
     col1, col2 = st.columns([1, 3])
     
     with col1:
-        st.image("/Users/apple/Downloads/OIP.jpeg", width=200) 
+        st.image("./about/logo.png", width=200) 
     with col2:
         st.header("Our Offerings")
         
@@ -69,6 +50,6 @@ def display_about():
     st.write("""
     - **Email**: mbtipersona@gmail.com
     - **Phone**: +84 123 456 789
-    - **Facebook Page**: https://www.facebook.com/itsjkchan
+    - **Facebook Page**: https://www.facebook.com/mbtipersona
      """)
 display_about() 

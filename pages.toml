@@ -1,7 +1,6 @@
 [[pages]]
 path = "./home/home.py"
-name = "HOME"
-icon = "🏠"
+name = "MBTI PERSONA"
 
 [[pages]]
 name = "Understand Your Personality!"
@@ -25,7 +24,7 @@ is_section = true
 
 [[pages]]
 path = "./about/about.py"
-name = "ABOUT"
+name = "ABOUT US"
 icon = "ℹ️"
 
 [[pages]]

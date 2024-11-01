@@ -2,31 +2,12 @@ import streamlit as st
 import requests  
 import base64
 from bs4 import BeautifulSoup
-
-def get_img_as_base64(file):
-    with open(file, "rb") as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-# set_background
-img = get_img_as_base64("./p_types/Background.png")
-def set_background():
-    page_bg_img = f"""
-        <style>
-        [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("data:image/png;base64,{img}");
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-attachment: local;
-        }}
-        </style>
-        """ 
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-def personality_info(): # Task for Pham Khanh Linh, Bui Viet Huy
-    # Your function goes here
-    pass
+from Modules import BackgroundHandler
+from p_types.type_info import personality_info
+BackgroundHandler.set_background("./p_test/Background.webp")
 
 def display_types():
-    set_background()
+    
     if "stage_type" not in st.session_state:
         st.session_state.stage_type = 0
     # Select type:
@@ -43,13 +24,7 @@ def display_types():
     
     if st.session_state.stage_type == 1:
         placeholder.markdown('We recommend you to take your first personality test. Do you want to take it now?')
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button('Yes'):
-                placeholder.markdown('Please head to <b>Personality Test</b> to take the test!', unsafe_allow_html = True)
-        with col2:
-            if st.button('No'):
-                placeholder.markdown('We hope you will identify your personality in the future!', unsafe_allow_html = True)
+        st.markdown('[Click here to head to the Personality Test](./p_test)', unsafe_allow_html=True)
     if st.session_state.stage_type == 2:
         personality_info()
         
