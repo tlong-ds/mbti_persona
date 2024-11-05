@@ -40,3 +40,23 @@ class Result:
         left_labels = ["Extraverted", "Intuitive", "Thinking", "Judging"]
         right_labels = ["Introverted", "Observant", "Feeling", "Prospecting"]
         colors = ['#5DADE2', '#F4D03F', '#58D68D', '#AF7AC5', '#E74C3C']  # Custom colors
+
+        fig, ax = plt.subplots(figsize=(8, 6))
+        for i, (score, color) in enumerate(zip(scores, colors)):
+            ax.barh(i, score, color=color, height=0.3)
+            ax.barh(i, 100-score, left=score, color='#e0e0e0', height=0.3)  # Faded part
+
+            # Adding text labels
+            ax.text(score - 5, i, f"{score}%", va='center', ha='center', color='black', weight='bold')
+            ax.text(-5, i, left_labels[i], va='center', ha='right', color='gray', weight='bold')
+            ax.text(105, i, right_labels[i], va='center', ha='left', color='gray', weight='bold')
+
+        # Customizing plot aesthetics
+        ax.set_xlim(0, 100)
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.invert_yaxis()  # Highest score at the top
+        plt.box(False)  # Remove chart box
+
+        # Display plot in Streamlit
+        st.pyplot(fig)

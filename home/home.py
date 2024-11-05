@@ -10,7 +10,6 @@ def get_img_as_base64(file):
 BackgroundHandler.set_background("./home/Background.webp")
 def display_home(): # Task for Nguyen Dang Minh, Ninh Duy Tuan
     st.balloons()
-
     # Your function goes here!
     st.write('Hello')
 
