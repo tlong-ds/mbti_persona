@@ -1,4 +1,14 @@
 [[pages]]
+path = "./account/account.py"
+name = "YOUR ACCOUNT"
+icon = "💛"
+
+[[pages]]
+name = "_________________________________________"
+icon = ""
+is_section = true
+
+[[pages]]
 path = "./home/home.py"
 name = "MBTI PERSONA"
 
@@ -27,7 +37,3 @@ path = "./about/about.py"
 name = "ABOUT US"
 icon = "ℹ️"
 
-[[pages]]
-path = "./premium/premium.py"
-name = "PREMIUM"
-icon = "💛"
