@@ -13,11 +13,12 @@ class BackgroundHandler:
     @classmethod
     @st.cache_data
     def set_background(cls, image):
-        img = cls.get_img_as_base64(image)
+        background = cls.get_img_as_base64(image)
+        
         page_bg_img = f"""
         <style>
         [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("data:image/png;base64,{img}");
+        background-image: url("data:image/png;base64,{background}");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -25,6 +26,18 @@ class BackgroundHandler:
         </style>
         """
         st.markdown(page_bg_img, unsafe_allow_html=True)
+    @classmethod
+    def set_sidebar(cls, image):
+        sidebar = cls.get_img_as_base64(image)
+        pg_sidebar_img = f"""
+        <style>
+        [data-testid="stSidebar"] > .main {{
+        background-image: url("data:image/png;base64,{sidebar}");
+        background-size: cover;
+        }}
+        </style>
+        """
+        st.markdown(page_sidebar_img, unsafe_allow_html=True)
 
 class Time:
     @staticmethod
