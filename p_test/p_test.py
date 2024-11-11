@@ -1,31 +1,34 @@
 import streamlit as st
 
 from p_test.mbti_test import test
-from p_test.result import Result
+from p_test.result import display_results
 from Modules import BackgroundHandler, Time, reset_app
-# Set background image
+
+# Set the background image
 BackgroundHandler.set_background("./p_test/Background.webp")
 pod = Time.real_time()
 
 # Initialize session states
-if 'name' not in st.session_state:
-    st.session_state['name'] = ''
+if 'ptype' not in st.session_state:
+    st.session_state['ptype'] = None
 if 'stage' not in st.session_state:
     st.session_state['stage'] = 0
 if 'completed' not in st.session_state:
     st.session_state['completed'] = False
+if 'name' not in st.session_state:
+    st.session_state['name'] = None
 
 # Main function to display the test
 def display_test():
     placeholder = st.empty()
 
     # Input the user name
-    if st.session_state['name'] == '':
+    if st.session_state['name'] == None:
         st.markdown(f'<p class="question-text">Good {pod}. What\'s your name?</p>', unsafe_allow_html=True)
         name_input = st.text_input(f'Enter your name here: ')
         if name_input:
-            st.session_state['name'] = name_input  # Save the name
-            st.rerun()  # Trigger a rerun to hide the input box
+            st.session_state['name'] = name_input 
+            st.rerun()  
     else:
         placeholder.markdown(f"""Good {pod}, {st.session_state['name']}! 
                                  Are you ready to take your personality test? <br> 
@@ -65,7 +68,7 @@ def display_test():
         # Display the results
         if st.session_state.stage == 3 and st.session_state["completed"]:
             placeholder.write(f"")
-            Result().display_result()
+            display_results()
             st.button('Restart', on_click=reset_app, key = "retake_the_test")
 
 display_test()
