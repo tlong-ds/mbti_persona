@@ -3,7 +3,7 @@ import pandas as pd
 import base64
 from datetime import datetime
 
-class BackgroundHandler:
+class VisualHandler:
     # Convert image to base64
     @staticmethod
     def get_img_as_base64(file):
@@ -38,6 +38,10 @@ class BackgroundHandler:
         </style>
         """
         st.markdown(page_sidebar_img, unsafe_allow_html=True)
+    @classmethod
+    def load_css(cls, css: str):
+        with open(css) as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 class Time:
     @staticmethod

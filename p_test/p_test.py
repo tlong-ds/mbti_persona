@@ -2,10 +2,10 @@ import streamlit as st
 
 from p_test.mbti_test import test
 from p_test.result import display_results
-from Modules import BackgroundHandler, Time, reset_app
+from Modules import VisualHandler, Time, reset_app
 
 # Set the background image
-BackgroundHandler.set_background("./p_test/Background.webp")
+VisualHandler.set_background("./p_test/Background.webp")
 pod = Time.real_time()
 
 # Initialize session states

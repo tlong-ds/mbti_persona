@@ -49,7 +49,8 @@ def user_info():
         with st.form(key="info_form"):
             col1, col2 = st.columns([1, 1])
             with col1:
-                st.markdown(f"<h3>{st.session_state.name}, {st.session_state.gender}, {st.session_state.ptype}</h3>", unsafe_allow_html=True)
+                stat = "💛" if st.session_state.status == "premium" else ""
+                st.markdown(f"<h3>{stat} {st.session_state.name}, {st.session_state.gender}, {st.session_state.ptype}</h3>", unsafe_allow_html=True)
                 st.markdown(f"<h4>{st.session_state.dob}</h4>", unsafe_allow_html=True)
                 st.markdown(f"Your email: {st.session_state.email}", unsafe_allow_html=True)
                 st.markdown(f"Your phone number: {st.session_state.phone}", unsafe_allow_html=True)
