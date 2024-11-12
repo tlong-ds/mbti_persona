@@ -2,9 +2,9 @@ import streamlit as st
 import requests  
 import base64
 from bs4 import BeautifulSoup
-from Modules import BackgroundHandler
+from Modules import VisualHandler
 from p_types.type_info import personality_info
-BackgroundHandler.set_background("./p_test/Background.webp")
+VisualHandler.set_background("./p_test/Background.webp")
 
 def display_types():
     
