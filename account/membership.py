@@ -23,7 +23,7 @@ def ads_premium():
         with col3:
             st.write("""With premium, you will also get access to our exclusive community, 
             including experts in psychology to deepen your understanding of your personality.""")
-        st.subheader("Pricing: ONLY 250000 VNĐ, one-time payment!")
+        st.subheader("Pricing: ONLY $10, one-time payment!")
         st.markdown(f"""We believe that good stuff does not need to be expensive.
             But we do believe that good stuff should be widespread to everyone.
         """, unsafe_allow_html=True)
