@@ -1,6 +1,16 @@
 import streamlit as st
 from Modules import VisualHandler
 
+st.set_page_config(
+    page_title="About",
+    page_icon="ℹ️",
+    layout="centered",
+    initial_sidebar_state="collapsed",
+)
+
+st.title("About Us")
+
+
 VisualHandler.set_background("./about/Background.webp")
 VisualHandler.custom_sidebar()
 

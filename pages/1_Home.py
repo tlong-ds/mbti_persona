@@ -1,6 +1,14 @@
 import streamlit as st
+from streamlit_extras.switch_page_button import switch_page
 from Modules import VisualHandler
 import base64
+
+st.set_page_config(
+    page_title="Home",
+    page_icon="🏠",
+    layout="centered",
+    initial_sidebar_state="collapsed",
+)
 
 VisualHandler.set_background('./home/background.webp')
 VisualHandler.custom_sidebar()

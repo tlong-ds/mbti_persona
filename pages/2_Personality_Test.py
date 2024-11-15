@@ -3,6 +3,15 @@ from p_test.mbti_test import test
 from p_test.result import display_results
 from Modules import VisualHandler, Time, reset_app
 
+st.set_page_config(
+    page_title="Personality Test",
+    page_icon="📝",
+    layout="centered",
+    initial_sidebar_state="collapsed",
+)
+
+st.title("MBTI Personality Test")
+
 # Set the background image
 VisualHandler.custom_sidebar()
 VisualHandler.set_background("./p_test/Background.webp")

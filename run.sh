@@ -5,6 +5,8 @@ branch="$1"
 # sync with upstream repo
 git pull upstream main
 git push origin main
+# update environment if necessary
+conda env update --file environment.yml --prune
 
 # create branch if branch name was passed
 if [ ! -z "$branch" ]; then

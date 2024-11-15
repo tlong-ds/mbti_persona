@@ -4,6 +4,15 @@ import base64
 from bs4 import BeautifulSoup
 from Modules import VisualHandler
 
+st.set_page_config(
+    page_title="Personality Types",
+    page_icon="👤",
+    layout="centered",
+    initial_sidebar_state="collapsed",
+)
+
+st.title("Personality Types")
+
 VisualHandler.custom_sidebar()
 VisualHandler.set_background("./p_test/Background.webp")
 

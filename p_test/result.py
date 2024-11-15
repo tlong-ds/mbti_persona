@@ -27,7 +27,7 @@ def draw_figure():
     
     colors = ['#5DADE2', '#F4D03F', '#58D68D', '#AF7AC5']  # Custom colors
     
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(6, 6))
     for i, (score, color) in enumerate(zip(scores, colors)):
         # Draw the bar representing the score
         ax.barh(i, score, color=color, height=0.5)
@@ -72,7 +72,9 @@ def display_results():
         st.error("No results to display. Please complete the test first.")
         return
     calculate_result()
-    User.update_ptype(st.session_state['username'], st.session_state['ptype'])
+    if st.session_state.login:
+        User.update_ptype(st.session_state['username'], st.session_state['ptype'])
+    
     st.markdown(f"<font size = '4'>**{st.session_state["name"]}'s personality type is**</font>", unsafe_allow_html = True)
     st.markdown(F"[<font size = '8'>**{st.session_state['ptype']}: {type_dict.loc[st.session_state['ptype'],"title"]}**</font>](https://www.16personalities.com/{st.session_state['ptype']}-personality)", unsafe_allow_html = True)
     st.markdown(f"<font size = '5'>{type_dict.loc[st.session_state['ptype'],"description"]} </font>", unsafe_allow_html = True)

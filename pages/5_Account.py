@@ -4,6 +4,15 @@ from account.membership import display_membership
 from account.info import user_info
 from Modules import VisualHandler
 
+st.set_page_config(
+    page_title="Account",
+    page_icon="🔒",
+    layout="centered",
+    initial_sidebar_state="collapsed",
+)
+
+st.title("Account Management")
+
 VisualHandler.custom_sidebar()
 
 # Main display function

@@ -1,9 +1,9 @@
 import streamlit as st
-import pandas as pd
 import base64
 from datetime import datetime
 from streamlit_extras.switch_page_button import switch_page
 from Account import User
+
 
 class Time:
     @staticmethod
@@ -18,6 +18,7 @@ class VisualHandler:
         with open(file, "rb") as f:
             data = f.read()
         return base64.b64encode(data).decode()
+    # Set background
     @classmethod
     @st.cache_data
     def set_background(cls, image):
@@ -34,6 +35,7 @@ class VisualHandler:
         </style>
         """
         st.markdown(page_bg_img, unsafe_allow_html=True)
+    # Set sidebar
     @classmethod
     def set_sidebar(cls, image):
         sidebar = cls.get_img_as_base64(image)
@@ -46,38 +48,18 @@ class VisualHandler:
         </style>
         """
         st.markdown(page_sidebar_img, unsafe_allow_html=True)
+    # Set page config
     @classmethod
     def load_css(cls, css: str):
         with open(css) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-    @classmethod
-    def light_dark(cls):
-        with st.sidebar:
-            st.toggle("Light/Dark", False)
+    # Custom sidebar
     @classmethod
     def custom_sidebar(cls):
-        st.markdown("""
-        <style>
-            /* Hide default sidebar navigation */
-            [data-testid="stSidebarNav"] {display: none !important;}
-            
-            /* Hide default sidebar content */
-            .css-1d391kg {display: none}
-            section[data-testid="stSidebar"] .css-1d391kg {display: none}
-            
-            /* Hide collapse control */
-            [data-testid="collapsedControl"] {display: none}
-            
-            /* Additional selectors to ensure navigation is hidden */
-            .css-1544g2n.e1fqkh3o4 {display: none !important;}
-            .css-1adrfps.e1fqkh3o4 {display: none !important;}
-        </style>
-        """, unsafe_allow_html=True)
-
-        
+        VisualHandler.load_css("./style/style.css")
         with st.sidebar:
-            st.title("Navigation")
+            st.title("MBTI Persona")
             if st.button("Home"):
                 switch_page("Home")
             if st.button("Personality Test"):
@@ -88,7 +70,10 @@ class VisualHandler:
                 switch_page("About")
             if st.button("Account"):
                 switch_page("Account")
+            st.divider()
+            st.title("User Management")
             User.user_management()
+            st.divider()
 
 
     
