@@ -2,6 +2,8 @@ import streamlit as st
 from Modules import VisualHandler
 
 VisualHandler.set_background("./about/Background.webp")
+VisualHandler.custom_sidebar()
+
 def display_about(): 
     st.write("""Understanding one's personality and the ways 
     it influences interactions with the world is invaluable for personal development, 

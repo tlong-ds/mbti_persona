@@ -2,6 +2,9 @@ import streamlit as st
 from account.pass_change import password
 from account.membership import display_membership
 from account.info import user_info
+from Modules import VisualHandler
+
+VisualHandler.custom_sidebar()
 
 # Main display function
 def display_user():

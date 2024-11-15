@@ -1,5 +1,5 @@
 [[pages]]
-path = "./home/home.py"
+path = "./pages/1_HOme.py"
 name = "MBTI PERSONA"
 
 [[pages]]
@@ -8,12 +8,12 @@ icon = "🫵"
 is_section = true
 
 [[pages]]
-path = "./p_test/p_test.py"
+path = "./pages/2_Personality_Test.py"
 name = "PERSONALITY TEST"
 icon = "📝"
 
 [[pages]]
-path = "./p_types/p_types.py"
+path = "./pages/3_Personality_Types.py"
 name = "PERSONALITY TYPES"
 icon = "💖"
 
@@ -23,11 +23,11 @@ icon = "📞"
 is_section = true
 
 [[pages]]
-path = "./about/about.py"
+path = "./pages/4_About.py"
 name = "ABOUT US"
 icon = "ℹ️"
 
 [[pages]]
-path = "./account/account.py"
+path = "./pages/5_Account.py"
 name = "YOUR ACCOUNT"
 icon = "💛"

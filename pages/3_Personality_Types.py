@@ -3,8 +3,13 @@ import requests
 import base64
 from bs4 import BeautifulSoup
 from Modules import VisualHandler
-from p_types.type_info import personality_info
+
+VisualHandler.custom_sidebar()
 VisualHandler.set_background("./p_test/Background.webp")
+
+def personality_info(): # Task for Pham Khanh Linh, Bui Viet Huy
+    # Your function goes here
+    pass
 
 def display_types():
     

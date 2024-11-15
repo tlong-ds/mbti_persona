@@ -2,8 +2,7 @@ import streamlit as st
 import os
 import sqlite3
 import bcrypt
-from datetime import date
-from Modules import Time
+
 class User:  
     db_path = os.path.join(os.path.dirname(__file__), 'users.db')
     """
@@ -128,6 +127,8 @@ class User:
     
     @staticmethod
     def user_management():
+        if "login" not in st.session_state:
+            st.session_state.login = False
         with st.sidebar:
             if not st.session_state.login:
                 choice = st.selectbox("Log In", ["Login", "Sign Up"])
@@ -168,7 +169,7 @@ class User:
                         User.add_user(name, dob, gender, username, password, phone, email)
                         st.success("Sign up successful")
             else:
-                st.markdown(f"Good {Time.real_time()}, {st.session_state['name']}.", unsafe_allow_html=True)
+                st.markdown(f"Hello, {st.session_state['name']}.", unsafe_allow_html=True)
                 st.markdown(f"Welcome to MBTI Persona!", unsafe_allow_html=True)
                 if st.button("Logout"):
                     st.session_state.login = False

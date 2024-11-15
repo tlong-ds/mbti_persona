@@ -1,10 +1,10 @@
 import streamlit as st
-
 from p_test.mbti_test import test
 from p_test.result import display_results
 from Modules import VisualHandler, Time, reset_app
 
 # Set the background image
+VisualHandler.custom_sidebar()
 VisualHandler.set_background("./p_test/Background.webp")
 pod = Time.real_time()
 
