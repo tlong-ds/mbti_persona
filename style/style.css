@@ -20,8 +20,8 @@
 
 }
 @keyframes slidebg {
-to {
-    background-position:20vw;
+    to {
+        background-position: 200% 0;
     }
 }
 

@@ -1,6 +1,7 @@
 import streamlit as st
 from p_test.mbti_test import test
 from p_test.result import display_results
+from streamlit_extras.switch_page_button import switch_page
 from Modules import VisualHandler, Time, reset_app
 
 st.set_page_config(
@@ -78,6 +79,7 @@ def display_test():
         if st.session_state.stage == 3 and st.session_state["completed"]:
             placeholder.write(f"")
             display_results()
-            st.button('Restart', on_click=reset_app, key = "retake_the_test")
+            if st.button("Learn more"):
+                switch_page("Personality Types")
 
 display_test()

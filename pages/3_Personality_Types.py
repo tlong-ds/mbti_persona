@@ -1,7 +1,6 @@
 import streamlit as st
-import requests  
-import base64
-from bs4 import BeautifulSoup
+from streamlit_extras.switch_page_button import switch_page
+import pandas as pd
 from Modules import VisualHandler
 
 st.set_page_config(
@@ -16,10 +15,14 @@ st.title("Personality Types")
 VisualHandler.custom_sidebar()
 VisualHandler.set_background("./p_test/Background.webp")
 
+if "ptype" not in st.session_state:
+    st.session_state.ptype = "-"
+
 def personality_info(): # Task for Pham Khanh Linh, Bui Viet Huy
     # Your function goes here
-    pass
-
+    st.write("Explore this type")
+    
+    
 def display_types():
     
     if "stage_type" not in st.session_state:
@@ -28,7 +31,7 @@ def display_types():
     ptypes = ['-', 'ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ', 'Not sure']
     placeholder = st.empty()
     placeholder.markdown('Select your personality type')
-    selected = st.selectbox('asa', ptypes, label_visibility="collapsed")
+    selected = st.selectbox('asa', ptypes, label_visibility="collapsed", index = ptypes.index(st.session_state.ptype))
     if selected == 'Not sure':
         st.session_state.stage_type = 1
     elif selected == '-':
@@ -38,7 +41,8 @@ def display_types():
     
     if st.session_state.stage_type == 1:
         placeholder.markdown('We recommend you to take your first personality test. Do you want to take it now?')
-        st.markdown('[Click here to head to the Personality Test](./p_test)', unsafe_allow_html=True)
+        if st.button('Yes'):
+            switch_page('Personality Test')
     if st.session_state.stage_type == 2:
         personality_info()
         
