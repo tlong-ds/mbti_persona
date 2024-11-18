@@ -7,13 +7,16 @@ from Modules import VisualHandler
 st.set_page_config(
     page_title="Account",
     page_icon="🔒",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
 )
 
 st.title("Account Management")
+if not st.session_state:
+    VisualHandler.initial()
+else:
+    VisualHandler.custom_sidebar()
 
-VisualHandler.custom_sidebar()
 
 # Main display function
 def display_user():

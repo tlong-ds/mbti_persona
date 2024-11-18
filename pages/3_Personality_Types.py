@@ -6,12 +6,18 @@ from Modules import VisualHandler
 st.set_page_config(
     page_title="Personality Types",
     page_icon="👤",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
 )
+if 'ptype' not in st.session_state:
+    st.session_state['ptype'] = None
 
 st.title("Personality Types")
-VisualHandler.custom_sidebar()
+if not st.session_state:
+    VisualHandler.initial()
+else:
+    VisualHandler.custom_sidebar()
+    VisualHandler.set_background(st.session_state.bg)
 
 def personality_info(): # Task for Pham Khanh Linh, Bui Viet Huy
     # Your function goes here

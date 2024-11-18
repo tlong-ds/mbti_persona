@@ -4,12 +4,16 @@ from Modules import VisualHandler
 st.set_page_config(
     page_title="About",
     page_icon="ℹ️",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
 )
 
 st.title("About Us")
-VisualHandler.custom_sidebar()
+if not st.session_state:
+    VisualHandler.initial()
+else:
+    VisualHandler.custom_sidebar()
+    VisualHandler.set_background(st.session_state.bg)
 
 def display_about(): 
     st.write("""Understanding one's personality and the ways 
@@ -26,7 +30,7 @@ def display_about():
     col1, col2 = st.columns([1, 3])
     
     with col1:
-        st.image("./about/logo.webp", width=200) 
+        st.image(st.session_state.logo, width=200) 
     with col2:
         st.header("Our Offerings")
         

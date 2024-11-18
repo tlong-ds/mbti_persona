@@ -7,14 +7,16 @@ from Modules import VisualHandler, Time, reset_app
 st.set_page_config(
     page_title="Personality Test",
     page_icon="📝",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
 )
 
 st.title("MBTI Personality Test")
-
-# Set the background image
-VisualHandler.custom_sidebar()
+if not st.session_state:
+    VisualHandler.initial()
+else:
+    VisualHandler.custom_sidebar()
+    VisualHandler.set_background(st.session_state.bg)
 pod = Time.real_time()
 
 # Initialize session states

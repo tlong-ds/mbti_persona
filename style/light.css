@@ -1,0 +1,50 @@
+.stButton > button {
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #000000;
+}
+
+/* Hover effect */
+.stButton > button:hover {
+    background-image: linear-gradient(90deg, rgba(0, 192, 255, 0.5) 0%, rgba(255, 207, 0, 0.5) 49%, rgba(252, 79, 79, 0.5) 80%, rgba(0, 192, 255, 0.5) 100%);
+    animation: slidebg 3s linear infinite;
+    font-weight: bold;
+    color: #000000;
+    box-shadow: rgb(255,255,255,0.5) 0px 0px 20px;
+}
+
+@keyframes slidebg {
+    to {
+        background-position: 200% 0;
+    }
+}
+
+.follow{
+margin-top: 40px;
+}
+
+.follow a{
+color: black;
+padding: 8px 16px;
+text-decoration: none;
+}
+
+/* Hide default sidebar navigation */
+[data-testid="stSidebarNav"] {display: none !important;}
+            
+/* Hide default sidebar content */
+.css-1d391kg {display: none}
+section[data-testid="stSidebar"] .css-1d391kg {display: none}
+
+/* Hide collapse control */
+[data-testid="collapsedControl"] {display: none}
+
+/* Additional selectors to ensure navigation is hidden */
+.css-1544g2n.e1fqkh3o4 {display: none !important;}
+.css-1adrfps.e1fqkh3o4 {display: none !important;}

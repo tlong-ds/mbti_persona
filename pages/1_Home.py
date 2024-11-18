@@ -6,11 +6,15 @@ import base64
 st.set_page_config(
     page_title="Home",
     page_icon="🏠",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
 )
+if not st.session_state:
+    VisualHandler.initial()
+else:
+    VisualHandler.custom_sidebar()
+    VisualHandler.set_background(st.session_state.bg)
 
-VisualHandler.custom_sidebar()
 st.title("MBTI PERSONA")
 def display_home(): # Task for Nguyen Dang Minh, Ninh Duy Tuan
     col1, col2 = st.columns([15,5])
