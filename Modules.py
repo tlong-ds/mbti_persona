@@ -16,8 +16,8 @@ class VisualHandler:
     LIGHT_BG = "bg_l.webp"
     DARK_LOGO = "logo_d.png"
     LIGHT_LOGO = "logo_l.png"
-    DARK_CSS = "style/dark.css"
-    LIGHT_CSS = "style/light.css"
+    DARK_CSS = "./style/dark.css"
+    LIGHT_CSS = "./style/light.css"
     # Convert image to base64
     @staticmethod
     def get_img_as_base64(file):
@@ -101,7 +101,7 @@ class VisualHandler:
             st.title("User Management")
             User.user_management()
             st.divider()
-            st.markdown('<div style="text-align: center;">© 2024 by Group 6 - DSEB 65B</div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: center">© 2024 by Group 6 - DSEB 65B</div>', unsafe_allow_html=True)
 
     @classmethod
     def initialize_session_state(cls):

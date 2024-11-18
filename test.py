@@ -12,6 +12,6 @@ except UnicodeDecodeError:
     df = pd.read_csv(file_path, encoding='latin-1', index_col="type")
 
 # Display the DataFrame
-text = df.iloc[1][2]
+text = df.iloc[1][3]
 
 st.markdown(text, unsafe_allow_html=True)

@@ -23,24 +23,19 @@ def display_home(): # Task for Nguyen Dang Minh, Ninh Duy Tuan
     if st.button("Take the Test", key="test_button"):
         switch_page("Personality Test")
     st.markdown('</div>', unsafe_allow_html=True)
-    #st.image('/Users/apple/Library/Mobile Documents/com~apple~CloudDocs/Downloads/Product-launching-plan.pptx', width=200)
-    st.write('''41K+                     3M+
-    \n Tests taken today
-    \nTests taken in Vietnam
-    1299M+
-    \nTotal tests taken
-    91.2%
-    \nResults rated as accurate or very accurate''')
-    col1, col3 = st.columns([1, 3])
-    
+    col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
-        st.header("""PERSONALITY TYPES
-    Understand others""") 
-   # with col2:
-      #  st.image('/Users/apple/Library/Mobile Documents/com~apple~CloudDocs/Downloads/Product-launching-plan.pptx', width=200) 
+        st.markdown('<div style="text-align: center; font-size: 40px;">144K+ </div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align: center; font-size: 15rx;">Tests taken today </div>', unsafe_allow_html=True)
+    with col2:
+        st.markdown('<div style="text-align: center; font-size: 40px;">25K+</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align: center; font-size: 15px;">Tests taken in VietNam </div>', unsafe_allow_html=True)
     with col3:
-        st.write("""
-    In our free type descriptions you’ll learn what really drives, inspires, and worries different personality types, helping you build more meaningful relationships.""")
-
+        st.markdown('<div style="text-align: center; font-size: 40px;">1000K+</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align: center; font-size: 15px;">Total tests taken </div>', unsafe_allow_html=True)
+    
+    # Tuan
+    
+    
 
 display_home()
