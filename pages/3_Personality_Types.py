@@ -11,29 +11,24 @@ st.set_page_config(
 )
 
 st.title("Personality Types")
-
 VisualHandler.custom_sidebar()
-
-if "ptype" not in st.session_state:
-    st.session_state.ptype = "-"
 
 def personality_info(): # Task for Pham Khanh Linh, Bui Viet Huy
     # Your function goes here
     st.write("Explore this type")
     
-    
+
 def display_types():
-    
     if "stage_type" not in st.session_state:
         st.session_state.stage_type = 0
     # Select type:
-    ptypes = ['-', 'ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ', 'Not sure']
+    ptypes = [None, 'ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ', 'Not sure']
     placeholder = st.empty()
     placeholder.markdown('Select your personality type')
     selected = st.selectbox('asa', ptypes, label_visibility="collapsed", index = ptypes.index(st.session_state.ptype))
     if selected == 'Not sure':
         st.session_state.stage_type = 1
-    elif selected == '-':
+    elif selected == None:
         st.session_state.stage_type = 0
     else:
         st.session_state.stage_type = 2

@@ -9,8 +9,6 @@ st.set_page_config(
 )
 
 st.title("About Us")
-
-
 VisualHandler.custom_sidebar()
 
 def display_about(): 

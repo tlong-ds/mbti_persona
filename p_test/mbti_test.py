@@ -2,15 +2,12 @@ import streamlit as st
 import pandas as pd
 
 def test():
-    if 'ptype' not in st.session_state:
-        st.session_state['ptype'] = None
     if 'answers' not in st.session_state:
         st.session_state['answers'] = {}
     if 'agree_counts' not in st.session_state:
         st.session_state['agree_counts'] = {}
     if 'total_counts' not in st.session_state:
         st.session_state['total_counts'] = {}
-
     questions = pd.read_csv('./p_test/qsets.tsv', sep='\t')
     for i, q in questions.iterrows():
         st.divider()

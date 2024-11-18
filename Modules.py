@@ -1,9 +1,9 @@
 import streamlit as st
 import base64
+import toml
 from datetime import datetime
 from streamlit_extras.switch_page_button import switch_page
 from Account import User
-
 
 class Time:
     @staticmethod
@@ -57,21 +57,32 @@ class VisualHandler:
         with open(css) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+    @classmethod
+    def mode(cls):
+        with open('.streamlit/config.toml', 'r') as f:
+            config = toml.load(f)
+        st.session_state.theme = config['theme']['base']
+        selected = st.select_slider("Select theme", options=["dark", "light"], value=st.session_state.theme)
+        if selected != st.session_state.theme:
+            st.session_state.theme = selected
+            st.session_state.bg = "bg_l.webp" if selected == "light" else "bg_d.webp"
+            st.session_state.logo = "logo_l.png" if selected == "light" else "logo_d.png"
+
+            config['theme']['base'] = "light" if selected == "light" else "dark"
+            with open('.streamlit/config.toml', 'w') as f:
+                toml.dump(config, f)
+            st.rerun()
+            st.rerun()
+            st.rerun()
+
     # Custom sidebar
     @classmethod
     def custom_sidebar(cls):
         with st.sidebar:
-            bg = "bg_d.webp"
-            logo = "logo_d.png"
-            sb = "sb_d.webp"
-            if st.toggle("Dark/Light Mode"):
-                bg = "bg_l.webp"
-                logo = "logo_l.png"
-                sb = "sb_l.webp"
-            st.image(logo, width=280)
+            VisualHandler.mode() 
             VisualHandler.load_css("./style/style.css")
-            VisualHandler.set_sidebar(sb)
-            VisualHandler.set_background(bg)
+            if "logo" in st.session_state:
+                st.image(st.session_state.logo, width=280)
             if st.button("Home"):
                 switch_page("Home")
             if st.button("Personality Test"):
