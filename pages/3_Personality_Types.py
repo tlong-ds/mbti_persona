@@ -13,7 +13,6 @@ st.set_page_config(
 st.title("Personality Types")
 
 VisualHandler.custom_sidebar()
-VisualHandler.set_background("./p_test/Background.webp")
 
 if "ptype" not in st.session_state:
     st.session_state.ptype = "-"

@@ -15,7 +15,6 @@ st.title("MBTI Personality Test")
 
 # Set the background image
 VisualHandler.custom_sidebar()
-VisualHandler.set_background("./p_test/Background.webp")
 pod = Time.real_time()
 
 # Initialize session states

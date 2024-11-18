@@ -11,7 +11,6 @@ st.set_page_config(
 st.title("About Us")
 
 
-VisualHandler.set_background("./about/Background.webp")
 VisualHandler.custom_sidebar()
 
 def display_about(): 

@@ -10,7 +10,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-VisualHandler.set_background('./home/background.webp')
 VisualHandler.custom_sidebar()
 st.title("MBTI PERSONA")
 def display_home(): # Task for Nguyen Dang Minh, Ninh Duy Tuan
