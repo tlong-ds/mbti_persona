@@ -30,7 +30,7 @@ def display_about():
     col1, col2 = st.columns([1, 3])
     
     with col1:
-        st.image(st.session_state.logo, width=200) 
+        st.image(st.session_state.logo, use_column_width="auto")
     with col2:
         st.header("Our Offerings")
         
