@@ -2,6 +2,7 @@ import streamlit as st
 import os
 import sqlite3
 import bcrypt
+from streamlit_extras.switch_page_button import switch_page
 
 class User:  
     db_path = os.path.join(os.path.dirname(__file__), 'users.db')
@@ -171,6 +172,8 @@ class User:
             else:
                 st.markdown(f"Hello, {st.session_state['name']}.", unsafe_allow_html=True)
                 st.markdown(f"Welcome to MBTI Persona!", unsafe_allow_html=True)
+                if st.button("View your account"):
+                    switch_page("Account")
                 if st.button("Logout"):
                     st.session_state.login = False
                     st.session_state['name'] = None

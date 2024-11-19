@@ -95,8 +95,6 @@ class VisualHandler:
                 switch_page("Personality Types")
             if st.button("About"):
                 switch_page("About")
-            if st.button("Account"):
-                switch_page("Account")
             st.divider()
             st.title("User Management")
             User.user_management()
