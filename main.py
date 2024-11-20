@@ -5,9 +5,7 @@ from streamlit_extras.switch_page_button import switch_page
 
 User.create_user_table()
 
-if "bg" not in st.session_state:
-    st.session_state.bg = None
-
+VisualHandler.initialize_session_state()
 
 # main function
 def main():

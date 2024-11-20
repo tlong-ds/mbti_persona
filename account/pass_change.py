@@ -1,6 +1,5 @@
 import streamlit as st
 from Account import User
-
 def password():
     st.header("Change Your Password")
 
@@ -19,6 +18,7 @@ def password():
             st.error("New password must be different from the old one!")
         elif new != confirm:
             st.error("Passwords do not match!")
-        else:
-            User.change_password(st.session_state.username, new)
+        elif User.change_password(st.session_state.username, new):
             st.success("Password changed successfully")
+        else:
+            st.error("Invalid password format. Please try again.")
