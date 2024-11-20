@@ -57,7 +57,7 @@ type_dict = pd.read_csv("./p_test/personality_types.csv", index_col = "type")
 
 def calculate_result():
     dimensions = {'E/I': 0, 'S/N': 0, 'T/F': 0, 'J/P': 0}
-    for dimension, score in st.session_state['answers']. items ():
+    for dimension, score in st.session_state['answers'].items():
         dimensions[dimension] += score
         ptype = (
         ('E' if dimensions['E/I'] >= 0 else 'I') +

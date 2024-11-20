@@ -3,6 +3,7 @@ from account.pass_change import password
 from account.membership import display_membership
 from account.info import user_info
 from Modules import VisualHandler
+from Account import User
 
 st.set_page_config(
     page_title="Account",

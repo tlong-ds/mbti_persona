@@ -1,0 +1,12 @@
+streamlit==1.38.0
+bcrypt
+pandas
+numpy
+beautifulsoup4
+pymongo
+matplotlib
+requests
+streamlit_lottie
+st_pages
+streamlit.extras
+python-dotenv
