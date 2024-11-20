@@ -7,9 +7,9 @@ from streamlit_extras.switch_page_button import switch_page
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from pymongo.errors import ServerSelectionTimeoutError, OperationFailure, DuplicateKeyError
+from dotenv import load_dotenv
 
 class User:
-    uri = "mongodb+srv://lytlongpers:long123@persona.zwigt.mongodb.net/?retryWrites=true&w=majority&appName=persona"
     client = None
     db = None
     users = None
@@ -18,12 +18,35 @@ class User:
     def initialize_db(cls):
         if not cls.client:
             try:
-                cls.client = MongoClient(cls.uri, server_api=ServerApi('1'))
+                # Load environment variables
+                load_dotenv()
+                uri = os.getenv('MONGODB_URI')
+                
+                if not uri:
+                    st.error("MongoDB URI not found")
+                    return
+                    
+                # Add retry logic and timeout
+                cls.client = MongoClient(
+                    uri,
+                    server_api=ServerApi('1'),
+                    serverSelectionTimeoutMS=5000,
+                    retryWrites=True
+                )
+                
+                # Test connection
+                cls.client.admin.command('ping')
+                
                 cls.db = cls.client['user_database']
                 cls.users = cls.db['users']
                 cls.users.create_index("username", unique=True)
-            except ConnectionError:
-                st.error("Failed to connect to MongoDB")
+                
+            except ServerSelectionTimeoutError:
+                st.error("Could not connect to MongoDB server")
+            except OperationFailure as e:
+                st.error(f"Authentication failed: {str(e)}")
+            except Exception as e:
+                st.error(f"Database error: {str(e)}")
 
     @classmethod
     def create_user_table(cls):
