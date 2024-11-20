@@ -1,4 +1,4 @@
-Welcome to the source code of MBTI Personality Test!
+Welcome to the source code of MBTI Persona.
 
 This project was conducted as a mid-term assignment for course 'Programming for Data Science', with Dr. Nguyen Tuan Long as the lecturer.
 
@@ -15,7 +15,6 @@ Ninh Duy Tuan
 Truong Duc Anh
 
 Nguyen Dang Minh
-
 
 
 
