@@ -20,7 +20,7 @@ class User:
             try:
                 # Load environment variables
                 load_dotenv()
-                uri = os.getenv('MONGODB_URI')
+                uri = st.secrets['MONGODB_URI']
                 
                 if not uri:
                     st.error("MongoDB URI not found")
