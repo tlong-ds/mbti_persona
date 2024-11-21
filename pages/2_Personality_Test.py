@@ -27,7 +27,7 @@ if 'name' not in st.session_state:
 # Main function to display the test
 def display_test():
     placeholder = st.empty()
-
+    pod = Time.real_time()
     # Input the user name
     if st.session_state['name'] == None:
         st.markdown(f'<p class="question-text">Good {pod}. What\'s your name?</p>', unsafe_allow_html=True)
