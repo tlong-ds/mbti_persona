@@ -53,7 +53,7 @@ def draw_figure():
 
 
 questions = pd.read_csv("./p_test/qsets.tsv", sep = '\t')
-data = pd.read_csv("./p_type/type_data.csv", index_col = "type")
+data = pd.read_csv("./p_types/type_data.csv", index_col = "type")
 
 def calculate_result():
     dimensions = {'E/I': 0, 'S/N': 0, 'T/F': 0, 'J/P': 0}
