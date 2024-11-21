@@ -1,4 +1,4 @@
-Welcome to the source code of MBTI Persona.
+<h1>Welcome to the source code of MBTI Persona.</h1>
 
 This project was conducted as a mid-term assignment for course 'Programming for Data Science', with Dr. Nguyen Tuan Long as the lecturer.
 
