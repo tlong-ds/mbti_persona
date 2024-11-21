@@ -2,7 +2,7 @@ import streamlit as st
 from p_test.mbti_test import test
 from p_test.result import display_results
 from streamlit_extras.switch_page_button import switch_page
-from Modules import VisualHandler, Time, reset_app
+from Modules import VisualHandler, Time
 
 st.set_page_config(
     page_title="Personality Test",
