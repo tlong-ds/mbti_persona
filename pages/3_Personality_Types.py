@@ -15,7 +15,6 @@ if 'ptype' not in st.session_state:
     st.session_state['ptype'] = None
 
 data = pd.read_csv("./p_types/type_data.csv", index_col = "type")
-imgs = pd.read_csv("./p_types/type_img.csv", index_col = "type")
 
 st.title("Personality Types")
 if not st.session_state:
@@ -26,11 +25,16 @@ else:
 
 def personality_info(text): 
     # Your function goes here
-    st.image(f"{imgs.loc[text][0]}")
+    print(data.loc[text]["img"])
+    st.image(f"{data.loc[text]['img']}")
+    st.markdown(f"<font size = '8'>**{text}: {data.loc[text]['title']}**</font>", unsafe_allow_html = True)
+    st.markdown(f"<font size = '5'>{data.loc[text]['description']} </font>", unsafe_allow_html = True)
+    st.markdown(f"<font size = '4'>{data.loc[text]['percentage']} of the population</font>", unsafe_allow_html = True)
+    
     col1, col2 = st.columns([1, 5])
     with col1:
         st.write("Explore this type:")
-        columns = [i.title() for i in list(data.columns)]
+        columns = [i.title() for i in list(data.columns)[4:]]
         selected = st.selectbox("Select", columns, index = 0, label_visibility = "collapsed")
     with col2:
         st.markdown(data.loc[text][selected.lower()], unsafe_allow_html = True)

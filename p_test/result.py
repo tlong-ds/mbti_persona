@@ -53,7 +53,7 @@ def draw_figure():
 
 
 questions = pd.read_csv("./p_test/qsets.tsv", sep = '\t')
-type_dict = pd.read_csv("./p_test/personality_types.csv", index_col = "type")
+data = pd.read_csv("./p_type/type_data.csv", index_col = "type")
 
 def calculate_result():
     dimensions = {'E/I': 0, 'S/N': 0, 'T/F': 0, 'J/P': 0}
@@ -76,7 +76,7 @@ def display_results():
         User.update_ptype(st.session_state['username'], st.session_state['ptype'])
     
     st.markdown(f"<font size = '4'>**{st.session_state["name"]}'s personality type is**</font>", unsafe_allow_html = True)
-    st.markdown(F"<font size = '8'>**{st.session_state['ptype']}: {type_dict.loc[st.session_state['ptype'],"title"]}**</font>", unsafe_allow_html = True)
-    st.markdown(f"<font size = '5'>{type_dict.loc[st.session_state['ptype'],"description"]} </font>", unsafe_allow_html = True)
-    st.markdown(f"<font size = '4'>{type_dict.loc[st.session_state['ptype'],"percentage"]} of the population</font>", unsafe_allow_html = True)
+    st.markdown(F"<font size = '8'>**{st.session_state['ptype']}: {data.loc[st.session_state['ptype'],"title"]}**</font>", unsafe_allow_html = True)
+    st.markdown(f"<font size = '5'>{data.loc[st.session_state['ptype'],"description"]} </font>", unsafe_allow_html = True)
+    st.markdown(f"<font size = '4'>{data.loc[st.session_state['ptype'],"percentage"]} of the population</font>", unsafe_allow_html = True)
     draw_figure()
