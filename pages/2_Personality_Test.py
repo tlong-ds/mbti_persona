@@ -12,12 +12,7 @@ st.set_page_config(
 )
 
 st.title("MBTI Personality Test")
-if "css" not in st.session_state:
-    VisualHandler.initial()
-else:
-    VisualHandler.custom_sidebar()
-    VisualHandler.set_background(st.session_state.bg)
-pod = Time.real_time()
+VisualHandler.initial()
 
 # Initialize session states
 if 'ptype' not in st.session_state:

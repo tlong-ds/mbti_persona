@@ -9,11 +9,7 @@ st.set_page_config(
 )
 
 st.title("About Us")
-if "css" not in st.session_state:
-    VisualHandler.initial()
-else:
-    VisualHandler.custom_sidebar()
-    VisualHandler.set_background(st.session_state.bg)
+VisualHandler.initial()
 
 def display_about(): 
     st.write("""Understanding one's personality and the ways 

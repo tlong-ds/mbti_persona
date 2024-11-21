@@ -13,11 +13,7 @@ st.set_page_config(
 )
 
 st.title("Account Management")
-if "css" not in st.session_state:
-    VisualHandler.initial()
-else:
-    VisualHandler.custom_sidebar()
-
+VisualHandler.initial()
 
 # Main display function
 def display_user():

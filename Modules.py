@@ -117,10 +117,8 @@ class VisualHandler:
     
     @classmethod
     def initial(cls):
-        cls.initialize_session_state()  # Add this line
+        cls.initialize_session_state()  
         cls.custom_sidebar()
         if st.session_state.bg != None:
             cls.set_background(st.session_state.bg)
         
-def reset_app():
-    st.session_state.clear()  # Clear all session state variables

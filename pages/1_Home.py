@@ -9,11 +9,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
-if "css" not in st.session_state:
-    VisualHandler.initial()
-else:
-    VisualHandler.custom_sidebar()
-    VisualHandler.set_background(st.session_state.bg)
+VisualHandler.initial()
 
 st.title("MBTI PERSONA")
 def display_home(): # Task for Nguyen Dang Minh, Ninh Duy Tuan
