@@ -3,6 +3,8 @@ from streamlit_extras.switch_page_button import switch_page
 import pandas as pd
 from Modules import VisualHandler
 
+
+# Task for Pham Khanh Linh, Bui Viet Huy
 st.set_page_config(
     page_title="Personality Types",
     page_icon="👤",
@@ -12,6 +14,8 @@ st.set_page_config(
 if 'ptype' not in st.session_state:
     st.session_state['ptype'] = None
 
+data = pd.read_csv("./p_types/type_data.csv", index_col = "type")
+
 st.title("Personality Types")
 if not st.session_state:
     VisualHandler.initial()
@@ -19,22 +23,29 @@ else:
     VisualHandler.custom_sidebar()
     VisualHandler.set_background(st.session_state.bg)
 
-def personality_info(): # Task for Pham Khanh Linh, Bui Viet Huy
+def personality_info(text): 
     # Your function goes here
-    st.write("Explore this type")
+    col1, col2 = st.columns([1, 5])
+    with col1:
+        st.write("Explore this type:")
+        columns = [i.title() for i in list(data.columns)]
+        selected = st.selectbox("Select", columns, index = 0, label_visibility = "collapsed")
+    with col2:
+        st.markdown(data.loc[text][selected.lower()], unsafe_allow_html = True)
     
 
 def display_types():
     if "stage_type" not in st.session_state:
         st.session_state.stage_type = 0
     # Select type:
-    ptypes = [None, 'ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ', 'Not sure']
+    ptypes = ["None", 'ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ', 'Not sure']
     placeholder = st.empty()
+    
     placeholder.markdown('Select your personality type')
     selected = st.selectbox('asa', ptypes, label_visibility="collapsed", index = ptypes.index(st.session_state.ptype))
     if selected == 'Not sure':
         st.session_state.stage_type = 1
-    elif selected == None:
+    elif selected == "None":
         st.session_state.stage_type = 0
     else:
         st.session_state.stage_type = 2
@@ -44,7 +55,7 @@ def display_types():
         if st.button('Yes'):
             switch_page('Personality Test')
     if st.session_state.stage_type == 2:
-        personality_info()
+        personality_info(selected)
         
 display_types()
 
