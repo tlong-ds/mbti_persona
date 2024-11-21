@@ -255,8 +255,9 @@ class User:
             st.session_state.login = False
         
         with st.sidebar:
-            if not st.session_state.login:
+            if not st.session_state.get("login", False):  # Check if user is logged in
                 choice = st.selectbox("Log In", ["Login", "Sign Up"])
+                
                 if choice == "Login":
                     username = st.text_input("Username")
                     password = st.text_input("Password", type="password")
@@ -264,7 +265,7 @@ class User:
                         if cls.login(username, password):
                             st.success("Login successful")
                             user_info = cls.get_user_info(username)
-                            if user_info:  # Add check for user_info
+                            if user_info:  # Check if user_info is valid
                                 st.session_state['name'] = user_info.get('name')
                                 st.session_state['dob'] = user_info.get('dob')
                                 st.session_state['gender'] = user_info.get('gender')
@@ -278,6 +279,7 @@ class User:
                                 st.rerun()
                         else:
                             st.error("Login failed")
+                            
                 elif choice == "Sign Up":
                     name = st.text_input("Name")
                     dob = st.date_input(
@@ -302,8 +304,9 @@ class User:
                 if st.button("View your account"):
                     switch_page("Account")
                 if st.button("Logout"):
+                    # Reset session state
                     for key in ['login', 'name', 'dob', 'gender', 'username', 
-                              'phone', 'email', 'ptype', 'status', 'avt']:
-                        st.session_state[key] = 'None'
-                    st.session_state.login = False
+                                'phone', 'email', 'ptype', 'status', 'avt']:
+                        st.session_state[key] = None
+                    st.session_state['login'] = False  # Explicitly set login to False
                     st.rerun()
