@@ -304,5 +304,5 @@ class User:
                 if st.button("Logout"):
                     for key in ['login', 'name', 'dob', 'gender', 'username', 
                               'phone', 'email', 'ptype', 'status', 'avt']:
-                        st.session_state[key] = None
+                        st.session_state[key] = 'None'
                     st.rerun()
