@@ -15,6 +15,7 @@ if 'ptype' not in st.session_state:
     st.session_state['ptype'] = None
 
 data = pd.read_csv("./p_types/type_data.csv", index_col = "type")
+imgs = pd.read_csv("./p_types/type_img.csv", index_col = "type")
 
 st.title("Personality Types")
 if not st.session_state:
@@ -25,6 +26,7 @@ else:
 
 def personality_info(text): 
     # Your function goes here
+    st.image(f"{imgs.loc[text][0]}")
     col1, col2 = st.columns([1, 5])
     with col1:
         st.write("Explore this type:")
@@ -38,14 +40,14 @@ def display_types():
     if "stage_type" not in st.session_state:
         st.session_state.stage_type = 0
     # Select type:
-    ptypes = ["None", 'ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ', 'Not sure']
+    ptypes = [None, 'ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ', 'Not sure']
     placeholder = st.empty()
     
     placeholder.markdown('Select your personality type')
     selected = st.selectbox('asa', ptypes, label_visibility="collapsed", index = ptypes.index(st.session_state.ptype))
     if selected == 'Not sure':
         st.session_state.stage_type = 1
-    elif selected == "None":
+    elif selected == None:
         st.session_state.stage_type = 0
     else:
         st.session_state.stage_type = 2
