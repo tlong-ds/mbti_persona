@@ -75,8 +75,20 @@ def display_results():
     if st.session_state.login:
         User.update_ptype(st.session_state['username'], st.session_state['ptype'])
     
-    st.markdown(f"<font size = '4'>**{st.session_state['name']}'s personality type is**</font>", unsafe_allow_html = True)
-    st.markdown(F"<font size = '8'>**{st.session_state['ptype']}: {data.loc[st.session_state['ptype'],"title"]}**</font>", unsafe_allow_html = True)
-    st.markdown(f"<font size = '5'>{data.loc[st.session_state['ptype'],"description"]} </font>", unsafe_allow_html = True)
-    st.markdown(f"<font size = '4'>{data.loc[st.session_state['ptype'],"percentage"]} of the population</font>", unsafe_allow_html = True)
+    st.markdown(
+    f"<font size='4'>**{st.session_state.name}'s personality type is**</font>",
+    unsafe_allow_html=True
+    )
+    st.markdown(
+        f"<font size='8'>**{st.session_state.ptype}: {data.loc[st.session_state.ptype, 'title']}**</font>",
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        f"<font size='5'>{data.loc[st.session_state.ptype, 'description']}</font>",
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        f"<font size='4'>{data.loc[st.session_state.ptype, 'percentage']} of the population</font>",
+        unsafe_allow_html=True
+    )
     draw_figure()
