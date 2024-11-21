@@ -17,7 +17,7 @@ if 'ptype' not in st.session_state:
 data = pd.read_csv("./p_types/type_data.csv", index_col = "type")
 
 st.title("Personality Types")
-if not st.session_state:
+if "css" not in st.session_state:
     VisualHandler.initial()
 else:
     VisualHandler.custom_sidebar()

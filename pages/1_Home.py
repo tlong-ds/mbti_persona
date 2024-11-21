@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
-if not st.session_state:
+if "css" not in st.session_state:
     VisualHandler.initial()
 else:
     VisualHandler.custom_sidebar()
