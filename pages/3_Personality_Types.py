@@ -21,7 +21,7 @@ VisualHandler.initial()
 def personality_info(text): 
     # Your function goes here
     print(data.loc[text]["img"])
-    st.image(f"{data.loc[text]['img']}")
+    st.image(f"{data.loc[text]['img']}", use_column_width="auto")
     st.markdown(f"<font size = '8'>**{text}: {data.loc[text]['title']}**</font>", unsafe_allow_html = True)
     st.markdown(f"<font size = '5'>{data.loc[text]['description']} </font>", unsafe_allow_html = True)
     st.markdown(f"<font size = '4'>{data.loc[text]['percentage']} of the population</font>", unsafe_allow_html = True)
