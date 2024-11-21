@@ -305,4 +305,5 @@ class User:
                     for key in ['login', 'name', 'dob', 'gender', 'username', 
                               'phone', 'email', 'ptype', 'status', 'avt']:
                         st.session_state[key] = 'None'
+                    st.session_state.login = False
                     st.rerun()
