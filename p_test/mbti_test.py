@@ -8,6 +8,7 @@ def test():
         st.session_state['agree_counts'] = {}
     if 'total_counts' not in st.session_state:
         st.session_state['total_counts'] = {}
+    
     questions = pd.read_csv('./p_test/qsets.tsv', sep='\t')
     for i, q in questions.iterrows():
         st.divider()

@@ -13,14 +13,14 @@ st.set_page_config(
 )
 
 
-data = pd.read_csv("./p_types/type_data.csv", index_col = "type")
+data = pd.read_csv("./p_types/type_data.csv", index_col = "type") 
 
 st.title("Personality Types")
 VisualHandler.initial()
 
 def personality_info(text): 
     # Your function goes here
-    
+    # data.loc[text]['title'] ≠ data.iloc[]['title']
     st.markdown(f"<font size = '8'>**{text}: {data.loc[text]['title']}**</font>", unsafe_allow_html = True)
     st.markdown(f"<font size = '5'>{data.loc[text]['description']} </font>", unsafe_allow_html = True)
     st.markdown(f"<font size = '4'>{data.loc[text]['percentage']} of the population</font>", unsafe_allow_html = True)
@@ -36,16 +36,16 @@ def personality_info(text):
     
 
 def display_types():
-    if "stage_type" not in st.session_state:
+    if "stage_type" not in st.session_state: 
         st.session_state.stage_type = 0
     if 'ptype' not in st.session_state:
         st.session_state['ptype'] = 'None'
     # Select type:
     ptypes = ['None', 'ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ', 'Not sure']
-    placeholder = st.empty()
+    placeholder = st.empty() 
     
     placeholder.markdown('Select your personality type')
-    selected = st.selectbox('asa', ptypes, label_visibility="collapsed", index = ptypes.index(st.session_state['ptype']))
+    selected = st.selectbox('asa', ptypes, label_visibility="collapsed", index = ptypes.index(st.session_state['ptype'])) # create a select box to show in4 about a type, default = ...
     if selected == 'Not sure':
         st.session_state.stage_type = 1
     elif selected == 'None':

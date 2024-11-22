@@ -59,7 +59,7 @@ def calculate_result():
     dimensions = {'E/I': 0, 'S/N': 0, 'T/F': 0, 'J/P': 0}
     for dimension, score in st.session_state['answers'].items():
         dimensions[dimension] += score
-        ptype = (
+        ptype = ( 
         ('E' if dimensions['E/I'] >= 0 else 'I') +
         ('S' if dimensions ['S/N'] >= 0 else 'N') +
         ('T' if dimensions ['T/F'] >= 0 else 'F') +
@@ -67,6 +67,7 @@ def calculate_result():
         )
         st.session_state['ptype'] = ptype
         st.session_state.stage = 3
+        
 def display_results():
     if 'percentages' not in st.session_state:
         st.error("No results to display. Please complete the test first.")

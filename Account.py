@@ -15,7 +15,7 @@ class User:
     users = None
 
     @classmethod
-    def initialize_db(cls):
+    def initialize_db(cls): # connect to database
         if not cls.client:
             try:
                 # Load environment variables
@@ -49,7 +49,7 @@ class User:
                 st.error(f"Database error: {str(e)}")
 
     @classmethod
-    def create_user_table(cls):
+    def create_user_table(cls): # create database
         cls.initialize_db()
         try:
             validator = {
@@ -85,6 +85,7 @@ class User:
         except Exception as e:
             st.error(f"Error creating collection: {str(e)}")
             return False
+    
     @classmethod
     def valid_info(cls, username, phone, email):
         if not re.match(r'^[a-zA-Z][a-zA-Z0-9]{5,}$', username):
@@ -100,7 +101,7 @@ class User:
     
     @classmethod
     def valid_pass(cls, password):
-        # Validate password length: at least 12 characters
+        # Validate password length: at least 8 characters
         if len(password) < 8:
             st.error('Password must be at least 8 characters long!')
             return False
@@ -128,11 +129,11 @@ class User:
     def add_user(cls, name, dob, gender, username, password, phone, email, 
              ptype=None, status="std", 
              avt="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"):
-        cls.initialize_db()
+        cls.initialize_db() # connect to database
         try:
             if User.valid_info(username, phone, email) and User.valid_pass(password):
                 dob_str = dob.strftime("%Y-%m-%d") if dob else "None"
-                hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+                hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()) 
                 # Convert binary password to string
                 password_str = hashed_password.decode('utf-8')
                 # Ensure ptype is string if not None
@@ -276,7 +277,7 @@ class User:
                                 st.session_state['status'] = user_info.get('status')
                                 st.session_state['avt'] = user_info.get('avt')
                                 st.session_state.login = True
-                                st.rerun()
+                                st.rerun() # reload the web 
                         else:
                             st.error("Login failed")
                             
