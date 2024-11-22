@@ -5,6 +5,7 @@ from datetime import datetime
 from streamlit_extras.switch_page_button import switch_page
 from Account import User
 
+
 class Time:
     @staticmethod
     def real_time():

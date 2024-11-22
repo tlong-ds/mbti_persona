@@ -4,6 +4,7 @@ from p_test.result import display_results
 from streamlit_extras.switch_page_button import switch_page
 from Modules import VisualHandler, Time
 
+
 st.set_page_config(
     page_title="Personality Test",
     page_icon="📝",
@@ -55,9 +56,7 @@ def display_test():
                     st.rerun()
             with col2:
                 if st.button('No'):
-                    st.session_state.stage = 2
-                    st.session_state.clicked = True
-                    st.rerun()
+                    switch_page('Home')
         # Start the test
         if st.session_state.stage == 1:
             placeholder.markdown(f"""
@@ -65,17 +64,10 @@ def display_test():
                                  """, unsafe_allow_html=True)
             test()
             if st.session_state["completed"]: st.rerun()
-            
-        # Exit the test
-        if st.session_state.stage == 2:
-            placeholder.write("If you change your mind, you can reload the page or press this button!")
-            st.button('Restart', on_click=reset_app, key="re_entering")
         
         # Display the results
         if st.session_state.stage == 3 and st.session_state["completed"]:
             placeholder.write(f"")
             display_results()
-            if st.button("Learn more"):
-                switch_page("Personality Types")
-
+            
 display_test()
