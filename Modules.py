@@ -69,7 +69,7 @@ class VisualHandler:
     def custom_sidebar(cls):
         with st.sidebar:
             VisualHandler.mode() 
-            VisualHandler.load_css(st.session_state.css)
+            VisualHandler.load_css(st.session_state.css) 
             if "logo" in st.session_state and st.session_state.logo != None: 
                 st.image(st.session_state.logo, use_column_width="auto")
             if st.button("Home"):

@@ -293,9 +293,10 @@ class User:
                     email = st.text_input("Email")
                     username = st.text_input("Username")
                     password = st.text_input("Password", type="password")
+                    confirmed = st.text_input("Confirm Password", type = "cpassword")
                     phone = st.text_input("Phone")
                     if st.button("Sign Up"):
-                        if cls.add_user(name, dob, gender, username, password, phone, email):
+                        if password == confirmed and cls.add_user(name, dob, gender, username, password, phone, email):
                             st.success("Sign up successful")
                         else:
                             st.error("Unable to sign up")
