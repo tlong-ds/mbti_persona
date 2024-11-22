@@ -89,12 +89,16 @@ class VisualHandler:
             if "logo" in st.session_state and st.session_state.logo != None: 
                 st.image(st.session_state.logo, width=280)
             if st.button("Home"):
+                st.balloons()
                 switch_page("Home")
             if st.button("Personality Test"):
+                st.balloons()
                 switch_page("Personality Test")
             if st.button("Personality Types"):
+                st.balloons()
                 switch_page("Personality Types")
             if st.button("About"):
+                st.balloons()
                 switch_page("About")
             st.divider()
             st.title("User Management")

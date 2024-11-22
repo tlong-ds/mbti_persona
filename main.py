@@ -9,6 +9,7 @@ VisualHandler.initialize_session_state() # create session_state
 
 # main function
 def main():
+    st.balloons()
     switch_page("Home")
 if __name__ == "__main__":
     main()
