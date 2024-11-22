@@ -19,7 +19,7 @@ class VisualHandler:
     LIGHT_LOGO = "logo_l.png"
     DARK_CSS = "./style/dark.css"
     LIGHT_CSS = "./style/light.css"
-    # Convert image to base64
+    # Convert image to base64 
     @staticmethod
     def get_img_as_base64(file):
         with open(file, "rb") as f:
@@ -41,22 +41,6 @@ class VisualHandler:
         </style>
         """
         st.markdown(page_bg_img, unsafe_allow_html=True)
-    # Set sidebar
-    @classmethod
-    def set_sidebar(cls, image):
-        sidebar = cls.get_img_as_base64(image)
-        pg_sidebar_img = f"""
-        <style>
-        [data-testid="stSidebar"] > div:first-child {{
-        background-image: url("data:image/png;base64,{sidebar}");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        }}
-        </style>
-        """
-        st.markdown(pg_sidebar_img, unsafe_allow_html=True)
     # Set page config
     @classmethod
     def load_css(cls, css: str):
@@ -87,7 +71,7 @@ class VisualHandler:
             VisualHandler.mode() 
             VisualHandler.load_css(st.session_state.css)
             if "logo" in st.session_state and st.session_state.logo != None: 
-                st.image(st.session_state.logo, width=280)
+                st.image(st.session_state.logo, use_column_width="auto")
             if st.button("Home"):
                 st.balloons()
                 switch_page("Home")
