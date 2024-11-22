@@ -308,6 +308,6 @@ class User:
                     # Reset session state
                     for key in ['login', 'name', 'dob', 'gender', 'username', 
                                 'phone', 'email', 'ptype', 'status', 'avt']:
-                        st.session_state[key] = None
+                        st.session_state[key] = 'None'
                     st.session_state['login'] = False  # Explicitly set login to False
                     st.rerun()

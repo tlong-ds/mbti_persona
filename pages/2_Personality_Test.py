@@ -16,21 +16,20 @@ st.title("MBTI Personality Test")
 VisualHandler.initial()
 
 # Initialize session states
-if 'ptype' not in st.session_state:
-    st.session_state['ptype'] = None
+
 if 'stage' not in st.session_state:
     st.session_state['stage'] = 0
 if 'completed' not in st.session_state:
     st.session_state['completed'] = False
 if 'name' not in st.session_state:
-    st.session_state['name'] = None
+    st.session_state['name'] = 'None'
 
 # Main function to display the test
 def display_test():
     placeholder = st.empty()
     pod = Time.real_time()
     # Input the user name
-    if st.session_state['name'] == None:
+    if st.session_state['name'] == 'None':
         st.markdown(f'<p class="question-text">Good {pod}. What\'s your name?</p>', unsafe_allow_html=True)
         name_input = st.text_input(f'Enter your name here: ')
         if name_input:
